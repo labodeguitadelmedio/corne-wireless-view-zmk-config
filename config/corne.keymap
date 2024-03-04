@@ -30,9 +30,7 @@
             #binding-cells = <0>;
             wait-ms = <20>;
             bindings
-                = <&kp LG(A)>
-                , <&kp LG(C)>
-                ;
+                = <&kp LG(A)>, <&kp LG(C)>;
         };
         
         m1: paste_all {
@@ -40,10 +38,7 @@
             #binding-cells = <0>;
             wait-ms = <20>;
             bindings
-                = <&kp LG(A)>
-                , <&kp BSPC>
-                , <&kp LG(V)>
-                ;
+                = <&kp LG(A)>, <&kp BSPC>, <&kp LG(V)>;
         };
         
         m2: line_bspc {
@@ -51,17 +46,14 @@
             #binding-cells = <0>;
             wait-ms = <20>;
             bindings
-                = <&kp LG(BSPC)>
-                ;
+                = <&kp LG(BSPC)>;
         };
         
         m3: line_bspc {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <20>;
-            bindings
-                = <&kp LA(BSPC)>
-                ;
+            bindings = <&kp LA(BSPC)>;
         };
         
         m4: hold_left {
@@ -69,8 +61,7 @@
             #binding-cells = <0>;
             wait-ms = <20>;
             bindings
-                = <&kp LC(LEFT)>
-                ;
+                = <&kp LC(LEFT)>;
         };
         
         m5: hold_right {
@@ -78,8 +69,7 @@
             #binding-cells = <0>;
             wait-ms = <20>;
             bindings
-                = <&kp LC(RIGHT)>
-                ;
+                = <&kp LC(RIGHT)>;
         };
 
         m6: bed_time {
@@ -87,8 +77,7 @@
             #binding-cells = <0>;
             wait-ms = <20>;
             bindings
-                = <&kp LG(LC(Q))>
-                ;
+                = <&kp LG(LC(Q))>;
         };
     };
     
