@@ -55,7 +55,18 @@
                 ;
         };
         
-        m3: hold_left {
+        m3: line_bspc {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <20>;
+            bindings
+                = <&kp LA(BSPC)>
+                ;
+        };
+        
+        
+        
+        m4: hold_left {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <20>;
@@ -64,7 +75,7 @@
                 ;
         };
         
-        m4: hold_right {
+        m5: hold_right {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <20>;
@@ -73,7 +84,7 @@
                 ;
         };
 
-        m5: bed_time {
+        m6: bed_time {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <20>;
@@ -118,43 +129,43 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
-            bindings = <&m2>, <&kp>;
+            bindings = <&m2>, <&m3>;
         };
         
-        htup: hold_up {
+        holdup: hold_up {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
+            bindings = <&kp pg_up>, <&kp up>;
         };
         
-        htdown: hold_down {
+        holddown: hold_down {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
+            bindings = <&kp pg_dn>, <&kp down>;
         };
         
-        htleft: hold_left {
+        holdleft: hold_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
-            bindings = <&m3>, <&kp>;
+            bindings = <&m4>, <&kp left>;
         };
 
-        htright: hold_right {
+        holdright: hold_right {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
-            bindings = <&m4>, <&kp>;
+            bindings = <&m5>, <&kp right>;
         };
         
         htbed: bed_time {
