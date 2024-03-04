@@ -118,7 +118,7 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
-            bindings = <&m2>, <&kp LA(BSPC)>;
+            bindings = <&m2>, <&kp>;
         };
         
         htup: hold_up {
@@ -127,7 +127,7 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
-            bindings = <&kp pg_up>, <&kp up>;
+            bindings = <&kp>, <&kp>;
         };
         
         htdown: hold_down {
@@ -136,7 +136,7 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
-            bindings = <&kp pg_dn>, <&kp down>;
+            bindings = <&kp>, <&kp>;
         };
         
         htleft: hold_left {
@@ -145,7 +145,7 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
-            bindings = <&m3>, <&kp left>;
+            bindings = <&m3>, <&kp>;
         };
 
         htright: hold_right {
@@ -154,7 +154,7 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
-            bindings = <&m4>, <&kp right>;
+            bindings = <&m4>, <&kp>;
         };
         
         htbed: bed_time {
