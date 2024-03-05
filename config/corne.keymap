@@ -59,7 +59,7 @@
 // | CTRLTAB |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | \  |
 //                    | GUI | ALT |ENT RAS |   | SPC LWR | HYP  | ESC |
                         bindings = <
-   &kp LALT             &kp Q   &kp W &kp E   AG(R)   &kp T           &kp Y  &kp U   &kp I      &kp O       &kp P       &htbspc
+   &kp LALT             &kp Q   &kp W &kp E   AG(R)   &kp T           &kp Y  &kp U   &kp I      &kp O       &kp P       &kp BSPC
    &mt MEH TAB          AG(A)   AG(S) &kp D   AG(F)   &pall 0 G       &kp H  &kp J   &kp K      &kp L       &tdquote    &tdcolon
    &mt LCTRL LC(TAB)    AG(Z)   AG(X) AG(C)   AG(V)   &call 0 B       AG(N)  &kp M   &kp COMMA  &kp DOT     &tdques     &to ADJ
                         &kp LGUI   &lt RAS BSPC   &mt LSHIFT ENTER      &lt LWR SPACE  &mt HYPER ESC  &to LWR
