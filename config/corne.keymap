@@ -13,6 +13,40 @@
 #define MEH     &kp LC(LS(LALT))
 #define HYPER   &kp LC(LS(LA(LGUI)))
 
+
+/ { 
+    behaviors {
+        ag: auto_gui {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping_term_ms = <200>;
+            quick_tap_ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+
+        tdques: tap_dance_ques {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <175>;
+            bindings = <&kp FSLH>, <&kp QUESTION>;
+        };
+        
+        tdquote: tap_dance_quote {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <175>;
+            bindings = <&kp SQT>, <&kp DQT>;
+        };
+        
+        tdcolon: tap_dance_colon {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <175>;
+            bindings = <&kp SEMI>, <&kp COLON>;
+        };
+    };
+
 / {
         keymap {
                 compatible = "zmk,keymap";
