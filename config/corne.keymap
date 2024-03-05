@@ -46,6 +46,7 @@
             bindings = <&kp SEMI>, <&kp COLON>;
         };
     };
+};
 
 / {
         keymap {
