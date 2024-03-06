@@ -74,7 +74,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TDLEFT";
             #binding-cells = <0>;
-            bindings = <&mt LC(LEFT) LEFT>, <&kp LG(LBKT)>;
+            bindings = <&mt LC(LEFT) LEFT>, <&kp>;
         };
 
     };
