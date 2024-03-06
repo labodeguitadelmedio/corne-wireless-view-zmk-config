@@ -74,7 +74,15 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TDLEFT";
             #binding-cells = <0>;
-            bindings = <&mt LC(LEFT) LEFT>, <&kp>;
+            bindings = <&mt LC(LEFT) LEFT>;
+        };
+
+        gowest: gowest {
+            compatible = "zmk,behavior-hold-tap";
+            label = "GOWEST";
+            bindings = <&tdleft>, <&kp>;
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
         };
 
     };
