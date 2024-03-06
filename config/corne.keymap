@@ -13,7 +13,7 @@
 #define RAS     2
 #define ADJ     3
 
-#define AG(keycode) &ag LG(keycode) keycode     // LGUI Macro
+#define AG(keycode) &ag LG(keycode) keycode     // AutoGUI Macro
 
 #define MEH     &kp LC(LS(LALT))
 #define HYPER   &kp LC(LS(LA(LGUI)))
@@ -120,7 +120,7 @@
             display-name = "Base";
             bindings = <
 &kp LEFT_ALT           &kp Q        &kp W  &kp E     &mt LG(R) R      &kp T                   &kp Y        &kp U                           &kp I      &kp O    &kp P     &mt LG(BSPC) LA(BSPC)
-&mt LC(LA(LSHFT)) TAB  &mt LG(A) A  &kp S  &kp D     AG(F)            &htpaste 0 G            &kp H        &kp J                           &kp K      &kp L    &kp SEMI  &kp SQT
+&mt LC(LA(LSHFT)) TAB  &mt LG(A) A  &kp S  &kp D     &kp F            &htpaste 0 G            &kp H        &kp J                           &kp K      &kp L    &kp SEMI  &kp SQT
 &mt LCTRL LC(TAB)      &kp Z        &kp X  &kp C     &kp V            &htcopy 0 B             &kp N        &kp M                           &kp COMMA  &kp DOT  &kp FSLH  &tog 3
                                            &kp LGUI  &lt 2 BACKSPACE  &mt LEFT_SHIFT ENTER    &lt 1 SPACE  &mt LG(LC(LA(LEFT_SHIFT))) ESC  &tog 1
             >;
