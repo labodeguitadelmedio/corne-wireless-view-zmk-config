@@ -80,10 +80,19 @@
         ag_ht: ag_ht {
             compatible = "zmk,behavior-hold-tap";
             label = "AG_HT";
-            bindings = <&cmd>, <&kp>;
+            bindings = <&gui>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
+        };
+
+        coffee: coffee {
+            compatible = "zmk,behavior-hold-tap";
+            label = "COFFEE";
+            bindings = <&wakey>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <400>;
         };
     };
 };
@@ -131,7 +140,7 @@
             label = "AG";
         };
 
-        cmd: cmg {
+        gui: cmg {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             bindings =
@@ -143,6 +152,14 @@
                 <&kp LGUI>;
 
             label = "CMG";
+        };
+
+        wakey: gotosleep {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press>, <&kp C_POWER>, <&macro_release>;
+
+            label = "GOTOSLEEP";
         };
     };
 
@@ -158,10 +175,10 @@
 
             display-name = "Base";
             bindings = <
-&kp LEFT_ALT                &kp Q  &kp W  &kp E     &ag R            &kp T                   &ag Y        &kp U                           &kp I      &kp O    &kp P     &mt LG(BSPC) LA(BSPC)
-&mt LC(LA(LEFT_SHIFT)) TAB  &ag A  &ag S  &kp D     &ag F            &htpaste 0 G            &kp H        &kp J                           &kp K      &kp L    &kp SEMI  &kp SQT
-&mt LCTRL LC(TAB)           &ag Z  &ag X  &ag C     &ag V            &htcopy 0 B             &ag N        &kp M                           &kp COMMA  &kp DOT  &kp FSLH  &tog 3
-                                          &kp LGUI  &lt 2 BACKSPACE  &mt LEFT_SHIFT ENTER    &lt 1 SPACE  &mt LG(LC(LA(LEFT_SHIFT))) ESC  &tog 1
+&kp LEFT_ALT                &mt C_AL_COFFEE Q  &kp W  &kp E     &ag R            &kp T                   &ag Y        &kp U                           &kp I      &coffee 0 O  &ag P     &mt LG(BSPC) LA(BSPC)
+&mt LC(LA(LEFT_SHIFT)) TAB  &ag A              &ag S  &kp D     &ag F            &htpaste 0 G            &kp H        &kp J                           &kp K      &kp L        &tdquote  &tdcolon
+&mt LCTRL LC(TAB)           &ag Z              &ag X  &ag C     &ag V            &htcopy 0 B             &ag N        &kp M                           &kp COMMA  &kp DOT      &tdques   &tog 3
+                                                      &kp LGUI  &lt 2 BACKSPACE  &mt LEFT_SHIFT ENTER    &lt 1 SPACE  &mt LG(LC(LA(LEFT_SHIFT))) ESC  &tog 1
             >;
         };
 
@@ -174,9 +191,9 @@
 
             display-name = "Lower";
             bindings = <
-&kp LALT               &kp N1        &kp N2        &kp N3        &kp N4        &kp N5          &kp N6    &kp N7  &kp N8      &kp N9  &kp N0      &kp BSPC
-&mt LA(LS(LCTRL)) TAB  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp HOME  &none   &kp MINUS   &none   &kp PLUS    &kp BACKSLASH
-&mt LCTRL LC(TAB)      &trans        &trans        &trans        &trans        &trans          &kp END   &none   &kp C_PREV  &none   &kp C_NEXT  &trans
+&kp LALT               &kp N1        &kp N2        &kp N3        &kp N4        &kp N5          &kp N6    &kp N7  &kp N8      &kp N9      &kp N0      &kp BSPC
+&mt LA(LS(LCTRL)) TAB  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp HOME  &none   &kp MINUS   &none       &kp PLUS    &kp BACKSLASH
+&mt LCTRL LC(TAB)      &trans        &trans        &trans        &trans        &trans          &kp END   &none   &kp C_PREV  &kp PERIOD  &kp C_NEXT  &trans
                                                    &kp LGUI      &trans        &kp SPACE       &kp RET   &trans  &tog 1
             >;
         };
