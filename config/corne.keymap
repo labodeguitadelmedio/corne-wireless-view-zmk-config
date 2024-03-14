@@ -94,6 +94,54 @@
             #binding-cells = <2>;
             tapping-term-ms = <400>;
         };
+
+        tdright: tdright {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TDRIGHT";
+            #binding-cells = <0>;
+            bindings = <&mt LC(RIGHT) RIGHT>;
+        };
+
+        goeast: goeast {
+            compatible = "zmk,behavior-hold-tap";
+            label = "GOEAST";
+            bindings = <&tdright>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+
+        tdup: tdup {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TDUP";
+            #binding-cells = <0>;
+            bindings = <&mt PG_UP UP_ARROW>;
+        };
+
+        tddown: tddown {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TDDOWN";
+            #binding-cells = <0>;
+            bindings = <&mt PG_DN DOWN>;
+        };
+
+        gonorth: gonorth {
+            compatible = "zmk,behavior-hold-tap";
+            label = "GONORTH";
+            bindings = <&tdup>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+
+        gosouth: gosouth {
+            compatible = "zmk,behavior-hold-tap";
+            label = "GOSOUTH";
+            bindings = <&tddown>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
     };
 };
 
@@ -175,7 +223,7 @@
 
             display-name = "Base";
             bindings = <
-&kp LEFT_ALT                &mt C_AL_COFFEE Q  &kp W  &kp E     &ag R            &kp T                   &ag Y        &kp U                           &kp I      &coffee 0 O  &ag P     &mt LG(BSPC) LA(BSPC)
+&kp LEFT_ALT                &mt C_AL_COFFEE Q  &kp W  &kp E     &ag R            &kp T                   &ag Y        &kp U                           &kp I      &coffee 0 O  &ag P     &tog 1
 &mt LC(LA(LEFT_SHIFT)) TAB  &ag A              &ag S  &kp D     &ag F            &htpaste 0 G            &kp H        &kp J                           &kp K      &kp L        &tdquote  &tdcolon
 &mt LCTRL LC(TAB)           &ag Z              &ag X  &ag C     &ag V            &htcopy 0 B             &ag N        &kp M                           &kp COMMA  &kp DOT      &tdques   &tog 3
                                                       &kp LGUI  &lt 2 BACKSPACE  &mt LEFT_SHIFT ENTER    &lt 1 SPACE  &mt LG(LC(LA(LEFT_SHIFT))) ESC  &tog 1
@@ -191,10 +239,10 @@
 
             display-name = "Lower";
             bindings = <
-&kp LALT               &kp N1        &kp N2        &kp N3        &kp N4        &kp N5          &kp N6    &kp N7  &kp N8      &kp N9      &kp N0      &kp BSPC
-&mt LA(LS(LCTRL)) TAB  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp HOME  &none   &kp MINUS   &none       &kp PLUS    &kp BACKSLASH
-&mt LCTRL LC(TAB)      &trans        &trans        &trans        &trans        &trans          &kp END   &none   &kp C_PREV  &kp PERIOD  &kp C_NEXT  &trans
-                                                   &kp LGUI      &trans        &kp SPACE       &kp RET   &trans  &tog 1
+&trans  &kp N1        &kp N2  &kp N3        &kp N4    &kp N5       &kp N6    &kp N7     &kp N8                     &kp N9      &kp N0      &tog 1
+&trans  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp PLUS  &kp MINUS    &kp HOME  &none      &kp MINUS                  &none       &kp PLUS    &kp BACKSLASH
+&trans  &kp N7        &kp N8  &kp N9        &kp N0    &trans       &kp END   &none      &kp C_PREV                 &kp PERIOD  &kp C_NEXT  &none
+                              &trans        &trans    &trans       &trans    &kp EQUAL  &mt LG(LS(LA(LCTRL))) ESC
             >;
         };
 
@@ -207,19 +255,19 @@
 
             display-name = "Raise";
             bindings = <
-&bootloader        &kp EXCL      &kp AT                &kp HASH    &kp LA(NUMBER_3)  &kp PRCNT    &kp CARET  &kp AMPS  &kp ASTERISK   &kp LPAR           &kp RPAR      &kp KP_EQUAL
-&trans             &trans        &kp LS(LA(NUMBER_2))  &kp DOLLAR  &trans            &trans       &trans     &trans    &kp MINUS      &kp C_VOLUME_UP    &kp PLUS      &kp BACKSLASH
-&mt LCTRL LC(TAB)  &kp CAPSLOCK  &trans                &trans      &trans            &trans       &trans     &trans    &kp LG(MINUS)  &kp C_VOLUME_DOWN  &kp LG(PLUS)  &kp TILDE
-                                                       &kp LGUI    &trans            &kp SPACE    &kp RET    &trans    &kp RALT
+&bootloader  &kp EXCL      &kp AT                &kp HASH    &kp LA(NUMBER_3)  &kp PRCNT    &kp CARET  &kp AMPS  &kp ASTERISK   &kp LPAR           &kp RPAR      &none
+&trans       &none         &kp LS(LA(NUMBER_2))  &kp DOLLAR  &none             &none        &none      &none     &kp MINUS      &kp C_VOLUME_UP    &kp PLUS      &kp BACKSLASH
+&trans       &kp CAPSLOCK  &none                 &none       &none             &none        &none      &none     &kp LG(MINUS)  &kp C_VOLUME_DOWN  &kp LG(PLUS)  &none
+                                                 &trans      &trans            &trans       &trans     &trans    &trans
             >;
         };
 
         adjust_layer {
             bindings = <
-&trans  &trans       &trans       &trans       &mt LG(R) R  &trans          &trans  &trans  &trans                      &trans              &trans                       &trans
-&trans  &mt LG(A) A  &mt LG(S) S  &trans       &mt LG(F) F  &htpaste 0 G    &trans  &trans  &trans                      &mt PAGE_UP UP      &trans                       &trans
-&trans  &mt LG(Z) Z  &mt LG(X) X  &mt LG(C) C  &mt LG(V) V  &htcopy 0 B     &trans  &trans  &gowest 0 LG(LEFT_BRACKET)  &mt PAGE_DOWN DOWN  &mt LG(RIGHT_BRACKET) RIGHT  &tog 3
-                                  &trans       &trans       &trans          &trans  &trans  &trans
+&bt BT_CLR  &none        &none        &none        &mt LG(R) R  &none           &bt BT_SEL 0  &bt BT_SEL 1           &bt BT_SEL 2                &bt BT_SEL 3     &bt BT_SEL 4                 &bt BT_NXT
+&trans      &mt LG(A) A  &mt LG(S) S  &trans       &mt LG(F) F  &htpaste 0 G    &trans        &none                  &none                       &gonorth 0 HOME  &none                        &none
+&trans      &mt LG(Z) Z  &mt LG(X) X  &mt LG(C) C  &mt LG(V) V  &htcopy 0 B     &trans        &trans                 &gowest 0 LG(LEFT_BRACKET)  &gosouth 0 END   &goeast 0 LG(RIGHT_BRACKET)  &tog 3
+                                      &trans       &trans       &trans          &trans        &mt LG(BSPC) LA(BSPC)  &trans
             >;
 
             label = "Adjust";
