@@ -239,10 +239,10 @@
 
             display-name = "Lower";
             bindings = <
-&trans  &kp N1        &kp N2  &kp N3        &kp N4    &kp N5       &kp N6    &kp N7     &kp N8                     &kp N9      &kp N0      &tog 1
-&trans  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp PLUS  &kp MINUS    &kp HOME  &none      &kp MINUS                  &none       &kp PLUS    &kp BACKSLASH
-&trans  &kp N7        &kp N8  &kp N9        &kp N0    &trans       &kp END   &none      &kp C_PREV                 &kp PERIOD  &kp C_NEXT  &none
-                              &trans        &trans    &trans       &trans    &kp EQUAL  &mt LG(LS(LA(LCTRL))) ESC
+&trans  &kp N1        &kp N2  &kp N3        &kp N4    &kp N5       &kp N6    &kp N7             &kp N8                     &kp N9      &kp N0      &tog 1
+&trans  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp PLUS  &kp MINUS    &kp HOME  &kp LEFT_BRACKET   &kp MINUS                  &none       &kp PLUS    &kp BACKSLASH
+&trans  &kp N7        &kp N8  &kp N9        &kp N0    &trans       &kp END   &kp RIGHT_BRACKET  &kp C_PREV                 &kp PERIOD  &kp C_NEXT  &none
+                              &trans        &trans    &trans       &trans    &kp EQUAL          &mt LG(LS(LA(LCTRL))) ESC
             >;
         };
 
@@ -255,10 +255,10 @@
 
             display-name = "Raise";
             bindings = <
-&bootloader  &kp EXCL      &kp AT                &kp HASH    &kp LA(NUMBER_3)  &kp PRCNT    &kp CARET  &kp AMPS  &kp ASTERISK   &kp LPAR           &kp RPAR      &none
-&trans       &none         &kp LS(LA(NUMBER_2))  &kp DOLLAR  &none             &none        &none      &none     &kp MINUS      &kp C_VOLUME_UP    &kp PLUS      &kp BACKSLASH
-&trans       &kp CAPSLOCK  &none                 &none       &none             &none        &none      &none     &kp LG(MINUS)  &kp C_VOLUME_DOWN  &kp LG(PLUS)  &none
-                                                 &trans      &trans            &trans       &trans     &trans    &trans
+&bootloader  &kp EXCL      &kp AT                &kp HASH    &kp LA(NUMBER_3)  &kp PRCNT        &kp CARET  &kp AMPS  &kp ASTERISK   &kp LPAR           &kp RPAR      &none
+&trans       &none         &kp LS(LA(NUMBER_2))  &kp DOLLAR  &none             &none            &none      &trans    &kp MINUS      &kp C_VOLUME_UP    &kp PLUS      &kp BACKSLASH
+&trans       &kp CAPSLOCK  &none                 &none       &none             &none            &none      &trans    &kp LG(MINUS)  &kp C_VOLUME_DOWN  &kp LG(PLUS)  &none
+                                                 &trans      &trans            &kp LS(ENTER)    &trans     &trans    &trans
             >;
         };
 
