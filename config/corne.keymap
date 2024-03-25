@@ -265,9 +265,9 @@
 
         adjust_layer {
             bindings = <
-&bt BT_CLR  &none        &none        &none        &mt LG(R) R  &none           &bt BT_SEL 0  &bt BT_SEL 1           &bt BT_SEL 2                &bt BT_SEL 3     &bt BT_SEL 4                 &bt BT_NXT
-&trans      &mt LG(A) A  &mt LG(S) S  &trans       &mt LG(F) F  &htpaste 0 G    &trans        &none                  &none                       &gonorth 0 HOME  &none                        &none
-&trans      &mt LG(Z) Z  &mt LG(X) X  &mt LG(C) C  &mt LG(V) V  &htcopy 0 B     &ag N         &trans                 &gowest 0 LG(LEFT_BRACKET)  &gosouth 0 END   &goeast 0 LG(RIGHT_BRACKET)  &tog 3
+&bt BT_CLR  &none        &none        &none        &mt LG(R) R  &none           &bt BT_SEL 0  &bt BT_SEL 1           &bt BT_SEL 2               &bt BT_SEL 3          &bt BT_SEL 4                 &bt BT_NXT
+&trans      &mt LG(A) A  &mt LG(S) S  &trans       &mt LG(F) F  &htpaste 0 G    &trans        &none                  &none                      &mt PAGE_UP UP_ARROW  &none                        &none
+&trans      &mt LG(Z) Z  &mt LG(X) X  &mt LG(C) C  &mt LG(V) V  &htcopy 0 B     &ag N         &trans                 &mt LG(LEFT_BRACKET) LEFT  &mt PAGE_DOWN DOWN    &mt LG(RIGHT_BRACKET) RIGHT  &tog 3
                                       &trans       &trans       &trans          &trans        &mt LG(BSPC) LA(BSPC)  &trans
             >;
 
