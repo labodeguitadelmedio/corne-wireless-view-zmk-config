@@ -84,6 +84,7 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
+            flavor = "tap-preferred";
         };
 
         coffee: coffee {
@@ -223,10 +224,10 @@
 
             display-name = "Base";
             bindings = <
-&kp LEFT_ALT                &mt C_AL_COFFEE Q  &kp W  &kp E     &ag R            &kp T                   &ag Y        &kp U                           &kp I      &coffee 0 O  &ag P     &tog 1
-&mt LC(LA(LEFT_SHIFT)) TAB  &ag A              &ag S  &kp D     &ag F            &htpaste 0 G            &kp H        &kp J                           &kp K      &kp L        &tdquote  &tdcolon
-&mt LCTRL LC(TAB)           &ag Z              &ag X  &ag C     &ag V            &htcopy 0 B             &ag N        &kp M                           &kp COMMA  &kp DOT      &tdques   &tog 3
-                                                      &kp LGUI  &lt 2 BACKSPACE  &mt LEFT_SHIFT ENTER    &lt 1 SPACE  &mt LG(LC(LA(LEFT_SHIFT))) ESC  &tog 1
+&kp LEFT_ALT                &mt C_AL_COFFEE Q  &kp W  &kp E     &ag R            &kp T                   &ag Y        &kp U                            &kp I                         &coffee 0 O  &ag P     &tog 1
+&mt LC(LA(LEFT_SHIFT)) TAB  &ag A              &ag S  &kp D     &ag F            &htpaste 0 G            &kp H        &kp J                            &kp K                         &kp L        &tdquote  &tdcolon
+&mt LCTRL LC(TAB)           &ag Z              &ag X  &ag C     &ag V            &htcopy 0 B             &ag N        &kp M                            &kp COMMA                     &kp DOT      &tdques   &tog 3
+                                                      &kp LGUI  &lt 2 BACKSPACE  &mt LEFT_SHIFT ENTER    &lt 1 SPACE  &mt LG(BACKSPACE) LA(BACKSPACE)  &mt LS(LA(LG(LCTRL))) ESCAPE
             >;
         };
 
@@ -266,7 +267,7 @@
             bindings = <
 &bt BT_CLR  &none        &none        &none        &mt LG(R) R  &none           &bt BT_SEL 0  &bt BT_SEL 1           &bt BT_SEL 2                &bt BT_SEL 3     &bt BT_SEL 4                 &bt BT_NXT
 &trans      &mt LG(A) A  &mt LG(S) S  &trans       &mt LG(F) F  &htpaste 0 G    &trans        &none                  &none                       &gonorth 0 HOME  &none                        &none
-&trans      &mt LG(Z) Z  &mt LG(X) X  &mt LG(C) C  &mt LG(V) V  &htcopy 0 B     &trans        &trans                 &gowest 0 LG(LEFT_BRACKET)  &gosouth 0 END   &goeast 0 LG(RIGHT_BRACKET)  &tog 3
+&trans      &mt LG(Z) Z  &mt LG(X) X  &mt LG(C) C  &mt LG(V) V  &htcopy 0 B     &ag N         &trans                 &gowest 0 LG(LEFT_BRACKET)  &gosouth 0 END   &goeast 0 LG(RIGHT_BRACKET)  &tog 3
                                       &trans       &trans       &trans          &trans        &mt LG(BSPC) LA(BSPC)  &trans
             >;
 
