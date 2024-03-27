@@ -90,7 +90,7 @@
         coffee: coffee {
             compatible = "zmk,behavior-hold-tap";
             label = "COFFEE";
-            bindings = <&wakey>, <&kp>;
+            bindings = <&gotosleep>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <500>;
@@ -163,10 +163,10 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
+                <&macro_tap>,
                 <&kp LG(A)>,
                 <&macro_wait_time 50>,
-                <&macro_press>,
+                <&macro_tap>,
                 <&kp LG(C)>,
                 <&macro_release>;
 
@@ -177,10 +177,10 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
+                <&macro_tap>,
                 <&kp LG(A)>,
                 <&macro_wait_time 50>,
-                <&macro_press>,
+                <&macro_tap>,
                 <&kp LG(V)>,
                 <&macro_release>;
 
@@ -214,24 +214,23 @@
             label = "CMG";
         };
 
-        wakey: gotosleep {
+        gotosleep: gotosleep {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press>, <&kp C_POWER>, <&macro_release>;
+            bindings = <&macro_tap>, <&kp C_POWER>, <&macro_release>;
 
             label = "GOTOSLEEP";
         };
 
-        interrobang: whattheheck {
+        interrobang: interrobang {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
+                <&macro_tap>,
                 <&kp QUESTION &kp EXCLAMATION>,
-                <&macro_pause_for_release>,
                 <&macro_release>;
 
-            label = "WHATTHEHECK";
+            label = "interrobang";
         };
     };
 
@@ -247,9 +246,9 @@
 
             display-name = "Base";
             bindings = <
-&mt LEFT_ALT ESCAPE         &mt C_AL_COFFEE Q  &kp W  &kp E     &ag R            &kp T                   &ag Y        &kp U                            &kp I                      &kp O    &ag P     &tog 1
-&mt LC(LA(LEFT_SHIFT)) TAB  &ag A              &ag S  &kp D     &ag F            &htpaste 0 G            &kp H        &kp J                            &kp K                      &kp L    &tdquote  &tdcolon
-&mt LCTRL LC(TAB)           &ag Z              &ag X  &ag C     &ag V            &htcopy 0 B             &ag N        &kp M                            &kp COMMA                  &kp DOT  &tdques   &tog 3
+&mt LEFT_ALT ESCAPE         &mt C_AL_COFFEE Q  &kp W  &kp E     &ag R            &kp T                   &ag Y        &kp U                            &kp I                      &kp O    &ag P        &tog 1
+&mt LC(LA(LEFT_SHIFT)) TAB  &ag A              &ag S  &kp D     &ag F            &htpaste 0 G            &kp H        &kp J                            &kp K                      &kp L    &tdquote     &tdcolon
+&mt LCTRL LC(TAB)           &ag Z              &ag X  &ag C     &ag V            &htcopy 0 B             &ag N        &kp M                            &kp COMMA                  &kp DOT  &htques 0 0  &tog 3
                                                       &kp LGUI  &lt 2 BACKSPACE  &mt LEFT_SHIFT ENTER    &lt 1 SPACE  &mt LG(BACKSPACE) LA(BACKSPACE)  &mt LS(LA(LG(LCTRL))) ESC
             >;
         };
