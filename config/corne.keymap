@@ -23,7 +23,7 @@
         tdques: tap_dance_ques {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <175>;
+            tapping-term-ms = <250>;
             bindings = <&kp FSLH>, <&kp QUESTION>;
         };
 
