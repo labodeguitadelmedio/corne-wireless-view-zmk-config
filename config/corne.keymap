@@ -112,7 +112,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TDDOWN";
             #binding-cells = <0>;
-            bindings = <&mt PG_DN DOWN>, <&mt HOME DOWN>;
+            bindings = <&mt PG_DN DOWN>, <&mt END DOWN>;
 
             tapping-term-ms = <250>;
         };
@@ -124,13 +124,33 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <250>;
-            flavor = "hold-preferred";
+            flavor = "tap-preferred";
         };
 
         htdots: htdots {
             compatible = "zmk,behavior-hold-tap";
             label = "HTDOTS";
             bindings = <&ellipsis>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+            flavor = "tap-preferred";
+        };
+
+        htcolon: htcolon {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HTCOLON";
+            bindings = <&dashdash>, <&tdcolon>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+            flavor = "tap-preferred";
+        };
+
+        htquote: htquote {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HTQUOTE";
+            bindings = <&sk>, <&tdquote>;
 
             #binding-cells = <2>;
             tapping-term-ms = <250>;
@@ -225,6 +245,14 @@
 
             label = "ELLIPSIS";
         };
+
+        dashdash: dashdash {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp MINUS &kp MINUS>, <&macro_release>;
+
+            label = "DASHDASH";
+        };
     };
 
     keymap {
@@ -239,9 +267,9 @@
 
             display-name = "Base";
             bindings = <
-&mt LEFT_ALT ESCAPE         &mt C_AL_COFFEE Q  &kp W  &kp E     &ag R            &kp T                   &ag Y        &kp U                            &kp I                      &kp O          &ag P        &tog 1
-&mt LC(LA(LEFT_SHIFT)) TAB  &ag A              &ag S  &kp D     &ag F            &htpaste 0 G            &kp H        &kp J                            &kp K                      &kp L          &tdquote     &tdcolon
-&mt LCTRL LC(TAB)           &ag Z              &ag X  &ag C     &ag V            &htcopy 0 B             &ag N        &kp M                            &kp COMMA                  &htdots 0 DOT  &htques 0 0  &tog 3
+&mt LEFT_ALT ESCAPE         &mt C_AL_COFFEE Q  &kp W  &kp E     &ag R            &kp T                   &ag Y        &kp U                            &kp I                      &kp O          &ag P                &tog 1
+&mt LC(LA(LEFT_SHIFT)) TAB  &ag A              &ag S  &kp D     &ag F            &htpaste 0 G            &kp H        &kp J                            &kp K                      &kp L          &htquote LEFT_ALT 0  &htcolon 0 0
+&mt LCTRL LC(TAB)           &ag Z              &ag X  &ag C     &ag V            &htcopy 0 B             &ag N        &kp M                            &kp COMMA                  &htdots 0 DOT  &htques 0 0          &tog 3
                                                       &kp LGUI  &lt 2 BACKSPACE  &mt LEFT_SHIFT ENTER    &lt 1 SPACE  &mt LG(BACKSPACE) LA(BACKSPACE)  &mt LS(LA(LG(LCTRL))) ESC
             >;
         };
