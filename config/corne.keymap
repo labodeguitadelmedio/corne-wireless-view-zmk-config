@@ -18,6 +18,8 @@
 #define MEH     &kp LC(LS(LALT))
 #define HYPER   &kp LC(LS(LA(LGUI)))
 
+&mt { tapping-term-ms = <250>; };
+
 / {
     behaviors {
         tdques: tap_dance_ques {
@@ -30,14 +32,14 @@
         tdquote: tap_dance_quote {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <175>;
+            tapping-term-ms = <250>;
             bindings = <&kp SQT>, <&kp DQT>;
         };
 
         tdcolon: tap_dance_colon {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <175>;
+            tapping-term-ms = <250>;
             bindings = <&kp SEMI>, <&kp COLON>;
         };
 
