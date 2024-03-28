@@ -94,21 +94,27 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TDRIGHT";
             #binding-cells = <0>;
-            bindings = <&mt LC(RIGHT) RIGHT>;
+            bindings = <&mt LC(RIGHT) RIGHT>, <&mt LG(RIGHT_BRACKET) RIGHT>;
+
+            tapping-term-ms = <250>;
         };
 
         tdup: tdup {
             compatible = "zmk,behavior-tap-dance";
             label = "TDUP";
             #binding-cells = <0>;
-            bindings = <&mt PG_UP UP_ARROW>;
+            bindings = <&mt PG_UP UP_ARROW>, <&mt HOME UP_ARROW>;
+
+            tapping-term-ms = <250>;
         };
 
         tddown: tddown {
             compatible = "zmk,behavior-tap-dance";
             label = "TDDOWN";
             #binding-cells = <0>;
-            bindings = <&mt PG_DN DOWN>;
+            bindings = <&mt PG_DN DOWN>, <&mt HOME DOWN>;
+
+            tapping-term-ms = <250>;
         };
 
         htques: htques {
@@ -119,6 +125,16 @@
             #binding-cells = <2>;
             tapping-term-ms = <250>;
             flavor = "hold-preferred";
+        };
+
+        htdots: htdots {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HTDOTS";
+            bindings = <&ellipsis>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+            flavor = "tap-preferred";
         };
     };
 };
@@ -198,6 +214,17 @@
 
             label = "interrobang";
         };
+
+        ellipsis: ellipsis {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&kp PERIOD &kp PERIOD &kp PERIOD>,
+                <&macro_release>;
+
+            label = "ELLIPSIS";
+        };
     };
 
     keymap {
@@ -212,9 +239,9 @@
 
             display-name = "Base";
             bindings = <
-&mt LEFT_ALT ESCAPE         &mt C_AL_COFFEE Q  &kp W  &kp E     &ag R            &kp T                   &ag Y        &kp U                            &kp I                      &kp O    &ag P        &tog 1
-&mt LC(LA(LEFT_SHIFT)) TAB  &ag A              &ag S  &kp D     &ag F            &htpaste 0 G            &kp H        &kp J                            &kp K                      &kp L    &tdquote     &tdcolon
-&mt LCTRL LC(TAB)           &ag Z              &ag X  &ag C     &ag V            &htcopy 0 B             &ag N        &kp M                            &kp COMMA                  &kp DOT  &htques 0 0  &tog 3
+&mt LEFT_ALT ESCAPE         &mt C_AL_COFFEE Q  &kp W  &kp E     &ag R            &kp T                   &ag Y        &kp U                            &kp I                      &kp O          &ag P        &tog 1
+&mt LC(LA(LEFT_SHIFT)) TAB  &ag A              &ag S  &kp D     &ag F            &htpaste 0 G            &kp H        &kp J                            &kp K                      &kp L          &tdquote     &tdcolon
+&mt LCTRL LC(TAB)           &ag Z              &ag X  &ag C     &ag V            &htcopy 0 B             &ag N        &kp M                            &kp COMMA                  &htdots 0 DOT  &htques 0 0  &tog 3
                                                       &kp LGUI  &lt 2 BACKSPACE  &mt LEFT_SHIFT ENTER    &lt 1 SPACE  &mt LG(BACKSPACE) LA(BACKSPACE)  &mt LS(LA(LG(LCTRL))) ESC
             >;
         };
@@ -253,10 +280,10 @@
 
         adjust_layer {
             bindings = <
-&bt BT_CLR  &none        &none        &none        &mt LG(R) R  &none           &bt BT_SEL 0  &none                  &none    &none                 &none                        &bt BT_NXT
-&trans      &mt LG(A) A  &mt LG(S) S  &trans       &mt LG(F) F  &htpaste 0 G    &trans        &none                  &none    &mt PAGE_UP UP_ARROW  &none                        &none
-&trans      &mt LG(Z) Z  &mt LG(X) X  &mt LG(C) C  &mt LG(V) V  &htcopy 0 B     &ag N         &trans                 &tdleft  &mt PAGE_DOWN DOWN    &mt LG(RIGHT_BRACKET) RIGHT  &tog 3
-                                      &trans       &trans       &trans          &trans        &mt LG(BSPC) LA(BSPC)  &trans
+&bt BT_CLR  &none  &none  &none   &mt LG(R) R  &none           &ag Y   &none                  &none    &none    &ag P     &bt BT_NXT
+&trans      &ag A  &ag S  &trans  &ag F        &htpaste 0 G    &trans  &none                  &none    &tdup    &none     &none
+&trans      &ag Z  &ag X  &ag C   &ag V        &htcopy 0 B     &ag N   &trans                 &tdleft  &tddown  &tdright  &tog 3
+                          &trans  &trans       &trans          &trans  &mt LG(BSPC) LA(BSPC)  &trans
             >;
 
             label = "Adjust";
