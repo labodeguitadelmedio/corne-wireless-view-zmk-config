@@ -279,7 +279,7 @@
             #binding-cells = <0>;
             bindings =
                 <&macro_press>,
-                <&kp LS(LA(LG(LCTRL)))>,
+                <&kp LA(LG(LC(LEFT_SHIFT)))>,
                 <&macro_release>;
 
             label = "CHAOS";
@@ -288,7 +288,10 @@
         blah: blah {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press>, <&kp LS(LA(LCTRL))>, <&macro_release>;
+            bindings =
+                <&macro_press>,
+                <&kp LA(LC(LEFT_SHIFT))>,
+                <&macro_release>;
 
             label = "BLAH";
         };
