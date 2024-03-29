@@ -158,6 +158,24 @@
             tapping-term-ms = <250>;
             flavor = "tap-preferred";
         };
+
+        hyper: hyper {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HYPER";
+            bindings = <&chaos>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+        };
+
+        meh: meh {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MEH";
+            bindings = <&blah>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+        };
     };
 };
 
@@ -255,6 +273,25 @@
 
             label = "DASHDASH";
         };
+
+        chaos: chaos {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LS(LA(LG(LCTRL)))>,
+                <&macro_release>;
+
+            label = "CHAOS";
+        };
+
+        blah: blah {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press>, <&kp LS(LA(LCTRL))>, <&macro_release>;
+
+            label = "BLAH";
+        };
     };
 
     keymap {
@@ -269,10 +306,10 @@
 
             display-name = "Base";
             bindings = <
-&mt LEFT_ALT ESCAPE         &mt C_AL_COFFEE Q  &kp W  &kp E     &ag R            &kp T                   &ag Y        &kp U                            &kp I                      &kp O          &ag P                &tog 1
-&mt LC(LA(LEFT_SHIFT)) TAB  &ag A              &ag S  &kp D     &ag F            &htpaste 0 G            &kp H        &kp J                            &kp K                      &kp L          &htquote LEFT_ALT 0  &htcolon 0 0
-&mt LCTRL LC(TAB)           &ag Z              &ag X  &ag C     &ag V            &htcopy 0 B             &ag N        &kp M                            &kp COMMA                  &htdots 0 DOT  &htques 0 0          &tog 3
-                                                      &kp LGUI  &lt 2 BACKSPACE  &mt LEFT_SHIFT ENTER    &lt 1 SPACE  &mt LG(BACKSPACE) LA(BACKSPACE)  &mt LS(LA(LG(LCTRL))) ESC
+&mt LEFT_ALT ESCAPE  &mt C_AL_COFFEE Q  &kp W  &kp E     &ag R            &kp T                   &ag Y        &kp U                            &kp I         &kp O          &ag P                &tog 1
+&meh 0 TAB           &ag A              &ag S  &kp D     &ag F            &htpaste 0 G            &kp H        &kp J                            &kp K         &kp L          &htquote LEFT_ALT 0  &htcolon 0 0
+&mt LCTRL LC(TAB)    &ag Z              &ag X  &ag C     &ag V            &htcopy 0 B             &ag N        &kp M                            &kp COMMA     &htdots 0 DOT  &htques 0 0          &tog 3
+                                               &kp LGUI  &lt 2 BACKSPACE  &mt LEFT_SHIFT ENTER    &lt 1 SPACE  &mt LG(BACKSPACE) LA(BACKSPACE)  &hyper 0 ESC
             >;
         };
 
@@ -285,10 +322,10 @@
 
             display-name = "Lower";
             bindings = <
-&trans  &kp N1        &kp N2  &kp N3        &kp N4    &kp N5       &kp N6    &kp N7             &kp N8                     &kp N9      &kp N0      &tog 1
-&trans  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp PLUS  &kp MINUS    &kp HOME  &kp LEFT_BRACKET   &kp MINUS                  &none       &kp PLUS    &kp BACKSLASH
-&trans  &kp N7        &kp N8  &kp N9        &kp N0    &trans       &kp END   &kp RIGHT_BRACKET  &kp C_PREV                 &kp PERIOD  &kp C_NEXT  &none
-                              &trans        &trans    &trans       &trans    &kp EQUAL          &mt LG(LS(LA(LCTRL))) ESC
+&trans  &kp N1        &kp N2  &kp N3        &kp N4    &kp N5       &kp N6    &kp N7             &kp N8      &kp N9      &kp N0      &tog 1
+&trans  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp PLUS  &kp MINUS    &kp HOME  &kp LEFT_BRACKET   &kp MINUS   &none       &kp PLUS    &kp BACKSLASH
+&trans  &kp N7        &kp N8  &kp N9        &kp N0    &trans       &kp END   &kp RIGHT_BRACKET  &kp C_PREV  &kp PERIOD  &kp C_NEXT  &none
+                              &trans        &trans    &trans       &trans    &kp EQUAL          &trans
             >;
         };
 
@@ -310,10 +347,10 @@
 
         adjust_layer {
             bindings = <
-&bt BT_CLR  &none  &none  &none   &mt LG(R) R  &none           &ag Y   &none                  &none    &none    &ag P     &bt BT_NXT
-&trans      &ag A  &ag S  &trans  &ag F        &htpaste 0 G    &trans  &none                  &none    &tdup    &none     &none
-&trans      &ag Z  &ag X  &ag C   &ag V        &htcopy 0 B     &ag N   &trans                 &tdleft  &tddown  &tdright  &tog 3
-                          &trans  &trans       &trans          &trans  &mt LG(BSPC) LA(BSPC)  &trans
+&bt BT_CLR  &none  &none  &none   &ag R   &none           &ag Y   &none                  &none    &kp C_POWER  &ag P     &bt BT_NXT
+&trans      &ag A  &ag S  &trans  &ag F   &htpaste 0 G    &trans  &none                  &none    &tdup        &none     &none
+&trans      &ag Z  &ag X  &ag C   &ag V   &htcopy 0 B     &ag N   &trans                 &tdleft  &tddown      &tdright  &tog 3
+                          &trans  &trans  &trans          &trans  &mt LG(BSPC) LA(BSPC)  &trans
             >;
 
             label = "Adjust";
