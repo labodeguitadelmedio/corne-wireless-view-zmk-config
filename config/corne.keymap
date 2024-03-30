@@ -26,7 +26,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
-            bindings = <&kp FSLH>, <&kp QUESTION>;
+            bindings = <&htslash 0 SLASH>, <&htques 0 QUESTION>;
         };
 
         tdquote: tap_dance_quote {
@@ -122,7 +122,7 @@
         htques: htques {
             compatible = "zmk,behavior-hold-tap";
             label = "HTQUES";
-            bindings = <&interrobang>, <&tdques>;
+            bindings = <&wth>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <250>;
@@ -166,6 +166,7 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <250>;
+            flavor = "tap-preferred";
         };
 
         meh: meh {
@@ -175,6 +176,17 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <250>;
+            flavor = "tap-preferred";
+        };
+
+        htslash: htslash {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HTSLASH";
+            bindings = <&interrobang>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+            flavor = "tap-preferred";
         };
     };
 };
@@ -278,7 +290,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
+                <&macro_tap>,
                 <&kp LA(LG(LC(LEFT_SHIFT)))>,
                 <&macro_release>;
 
@@ -288,12 +300,20 @@
         blah: blah {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LA(LC(LEFT_SHIFT))>,
-                <&macro_release>;
+            bindings = <&macro_tap>, <&kp LA(LC(LEFT_SHIFT))>, <&macro_release>;
 
             label = "BLAH";
+        };
+
+        wth: wth {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&kp QUESTION &kp QUESTION &kp QUESTION>,
+                <&macro_release>;
+
+            label = "WTH";
         };
     };
 
@@ -311,7 +331,7 @@
             bindings = <
 &mt LEFT_ALT ESCAPE  &mt C_AL_COFFEE Q  &kp W  &kp E     &ag R            &kp T                   &ag Y        &kp U                            &kp I         &kp O          &ag P                &tog 1
 &meh 0 TAB           &ag A              &ag S  &kp D     &ag F            &htpaste 0 G            &kp H        &kp J                            &kp K         &kp L          &htquote LEFT_ALT 0  &htcolon 0 0
-&mt LCTRL LC(TAB)    &ag Z              &ag X  &ag C     &ag V            &htcopy 0 B             &ag N        &kp M                            &kp COMMA     &htdots 0 DOT  &htques 0 0          &tog 3
+&mt LCTRL LC(TAB)    &ag Z              &ag X  &ag C     &ag V            &htcopy 0 B             &ag N        &kp M                            &kp COMMA     &htdots 0 DOT  &tdques              &tog 3
                                                &kp LGUI  &lt 2 BACKSPACE  &mt LEFT_SHIFT ENTER    &lt 1 SPACE  &mt LG(BACKSPACE) LA(BACKSPACE)  &hyper 0 ESC
             >;
         };
