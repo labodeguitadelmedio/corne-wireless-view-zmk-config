@@ -188,6 +188,42 @@
             tapping-term-ms = <250>;
             flavor = "tap-preferred";
         };
+
+        htsquare: htsquare {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HTSQUARE";
+            bindings = <&squareends>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+        };
+
+        htcurly: htcurly {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HTCURLY";
+            bindings = <&curlyends>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+        };
+
+        tdsquare: tdsquare {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+            bindings = <&htsquare 0 LEFT_BRACKET>, <&kp LEFT_BRACE>;
+
+            label = "TDSQUARE";
+        };
+
+        tdcurly: tdcurly {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+            bindings = <&htcurly 0 RIGHT_BRACKET>, <&kp RIGHT_BRACE>;
+
+            label = "TDCURLY";
+        };
     };
 };
 
@@ -315,6 +351,32 @@
 
             label = "WTH";
         };
+
+        curlyends: curlyends {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&kp LEFT_BRACE &kp RIGHT_BRACE>,
+                <&macro_wait_time 50>,
+                <&kp LEFT>,
+                <&macro_release>;
+
+            label = "CURLYENDS";
+        };
+
+        squareends: squareends {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&kp LEFT_BRACKET &kp RIGHT_BRACKET>,
+                <&macro_wait_time 50>,
+                <&kp LEFT>,
+                <&macro_release>;
+
+            label = "SQUAREENDS";
+        };
     };
 
     keymap {
@@ -345,10 +407,10 @@
 
             display-name = "Lower";
             bindings = <
-&trans  &kp N1        &kp N2  &kp N3        &kp N4    &kp N5       &kp N6    &kp N7             &kp N8      &kp N9      &kp N0      &tog 1
-&trans  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp PLUS  &kp MINUS    &kp HOME  &kp LEFT_BRACKET   &kp MINUS   &none       &kp PLUS    &kp BACKSLASH
-&trans  &kp N7        &kp N8  &kp N9        &kp N0    &trans       &kp END   &kp RIGHT_BRACKET  &kp C_PREV  &kp PERIOD  &kp C_NEXT  &none
-                              &trans        &trans    &trans       &trans    &kp EQUAL          &trans
+&trans  &kp N1        &kp N2  &kp N3        &kp N4    &kp N5       &kp N6    &kp N7     &kp N8      &kp N9      &kp N0      &tog 1
+&trans  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp PLUS  &kp MINUS    &kp HOME  &tdsquare  &kp MINUS   &none       &kp PLUS    &kp BACKSLASH
+&trans  &kp N7        &kp N8  &kp N9        &kp N0    &trans       &kp END   &tdcurly   &kp C_PREV  &kp PERIOD  &kp C_NEXT  &none
+                              &trans        &trans    &trans       &trans    &kp EQUAL  &trans
             >;
         };
 
