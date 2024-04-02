@@ -224,6 +224,15 @@
 
             label = "TDCURLY";
         };
+
+        htcurve: htcurve {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HTCURVE";
+            bindings = <&curveends>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+        };
     };
 };
 
@@ -358,7 +367,7 @@
             bindings =
                 <&macro_tap>,
                 <&kp LEFT_BRACE &kp RIGHT_BRACE>,
-                <&macro_wait_time 50>,
+                <&macro_wait_time 20>,
                 <&kp LEFT>,
                 <&macro_release>;
 
@@ -371,11 +380,24 @@
             bindings =
                 <&macro_tap>,
                 <&kp LEFT_BRACKET &kp RIGHT_BRACKET>,
-                <&macro_wait_time 50>,
+                <&macro_wait_time 20>,
                 <&kp LEFT>,
                 <&macro_release>;
 
             label = "SQUAREENDS";
+        };
+
+        curveends: curveends {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS>,
+                <&macro_wait_time 20>,
+                <&kp LEFT>,
+                <&macro_release>;
+
+            label = "CURVEENDS";
         };
     };
 
@@ -407,9 +429,9 @@
 
             display-name = "Lower";
             bindings = <
-&trans  &kp N1        &kp N2  &kp N3        &kp N4    &kp N5       &kp N6    &kp N7     &kp N8      &kp N9      &kp N0      &tog 1
-&trans  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp PLUS  &kp MINUS    &kp HOME  &tdsquare  &kp MINUS   &none       &kp PLUS    &kp BACKSLASH
-&trans  &kp N7        &kp N8  &kp N9        &kp N0    &trans       &kp END   &tdcurly   &kp C_PREV  &kp PERIOD  &kp C_NEXT  &none
+&trans  &kp N1        &kp N2  &kp N3        &kp N4    &kp N5       &kp N6    &kp N7     &kp N8      &kp N9      &htcurve 0 N0  &tog 1
+&trans  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp PLUS  &kp MINUS    &kp HOME  &tdsquare  &kp MINUS   &none       &kp PLUS       &kp BACKSLASH
+&trans  &kp N7        &kp N8  &kp N9        &kp N0    &trans       &kp END   &tdcurly   &kp C_PREV  &kp PERIOD  &kp C_NEXT     &none
                               &trans        &trans    &trans       &trans    &kp EQUAL  &trans
             >;
         };
