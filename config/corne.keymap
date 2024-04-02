@@ -159,9 +159,9 @@
             flavor = "tap-preferred";
         };
 
-        hyper: hyper {
+        hthyper: hthyper {
             compatible = "zmk,behavior-hold-tap";
-            label = "HYPER";
+            label = "HTHYPER";
             bindings = <&chaos>, <&kp>;
 
             #binding-cells = <2>;
@@ -232,6 +232,14 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <250>;
+        };
+
+        hyper: hyper {
+            compatible = "zmk,behavior-tap-dance";
+            label = "HYPER";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+            bindings = <&hthyper 0 ESC>, <&kp C_POWER>, <&sos>;
         };
     };
 };
@@ -399,6 +407,14 @@
 
             label = "CURVEENDS";
         };
+
+        sos: sos {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp LA(LC(DELETE))>, <&macro_release>;
+
+            label = "SOS";
+        };
     };
 
     keymap {
@@ -413,10 +429,10 @@
 
             display-name = "Base";
             bindings = <
-&mt LEFT_ALT ESCAPE  &mt C_AL_COFFEE Q  &ag W  &kp E     &ag R            &ag T                   &ag Y        &kp U                            &ag I         &ag O          &ag P                &tog 1
-&meh 0 TAB           &ag A              &ag S  &ag D     &ag F            &htpaste 0 G            &kp H        &kp J                            &kp K         &kp L          &htquote LEFT_ALT 0  &htcolon 0 0
-&mt LCTRL LC(TAB)    &ag Z              &ag X  &ag C     &ag V            &htcopy 0 B             &ag N        &kp M                            &kp COMMA     &htdots 0 DOT  &tdques              &tog 3
-                                               &kp LGUI  &lt 2 BACKSPACE  &mt LEFT_SHIFT ENTER    &lt 1 SPACE  &mt LG(BACKSPACE) LA(BACKSPACE)  &hyper 0 ESC
+&mt LEFT_ALT ESCAPE  &mt C_AL_COFFEE Q  &ag W  &kp E     &ag R            &ag T                   &ag Y        &kp U                            &ag I      &ag O          &ag P                &tog 1
+&meh 0 TAB           &ag A              &ag S  &ag D     &ag F            &htpaste 0 G            &kp H        &kp J                            &kp K      &kp L          &htquote LEFT_ALT 0  &htcolon 0 0
+&mt LCTRL LC(TAB)    &ag Z              &ag X  &ag C     &ag V            &htcopy 0 B             &ag N        &kp M                            &kp COMMA  &htdots 0 DOT  &tdques              &tog 3
+                                               &kp LGUI  &lt 2 BACKSPACE  &mt LEFT_SHIFT ENTER    &lt 1 SPACE  &mt LG(BACKSPACE) LA(BACKSPACE)  &hyper
             >;
         };
 
