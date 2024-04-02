@@ -239,7 +239,7 @@
             label = "HYPER";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
-            bindings = <&hthyper 0 ESC>, <&kp C_POWER>, <&sos>;
+            bindings = <&hthyper 0 ESC>, <&kp LC(C_POWER)>, <&sos>;
         };
     };
 };
@@ -411,7 +411,7 @@
         sos: sos {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LA(LC(DELETE))>, <&macro_release>;
+            bindings = <&macro_tap>, <&kp LA(LG(ESCAPE))>, <&macro_release>;
 
             label = "SOS";
         };
