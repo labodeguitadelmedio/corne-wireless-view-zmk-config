@@ -33,7 +33,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
-            bindings = <&kp SQT>, <&kp DQT>;
+            bindings = <&htsingleq 0 SQT>, <&htdoubleq 0 DOUBLE_QUOTES>;
         };
 
         tdcolon: tap_dance_colon {
@@ -79,16 +79,6 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-            flavor = "tap-preferred";
-        };
-
-        coffee: coffee {
-            compatible = "zmk,behavior-hold-tap";
-            label = "COFFEE";
-            bindings = <&gotosleep>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <500>;
             flavor = "tap-preferred";
         };
 
@@ -139,20 +129,10 @@
             flavor = "tap-preferred";
         };
 
-        htcolon: htcolon {
+        htdash: htdash {
             compatible = "zmk,behavior-hold-tap";
-            label = "HTCOLON";
-            bindings = <&dashdash>, <&tdcolon>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <250>;
-            flavor = "tap-preferred";
-        };
-
-        htquote: htquote {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HTQUOTE";
-            bindings = <&sk>, <&tdquote>;
+            label = "HTDASH";
+            bindings = <&dashdash>, <&tddash>;
 
             #binding-cells = <2>;
             tapping-term-ms = <250>;
@@ -241,6 +221,35 @@
             tapping-term-ms = <250>;
             bindings = <&hthyper 0 ESC>, <&kp LC(C_POWER)>, <&sos>;
         };
+
+        tddash: tddash {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TDDASH";
+            #binding-cells = <0>;
+            bindings = <&kp MINUS>, <&kp UNDERSCORE>;
+
+            tapping-term-ms = <250>;
+        };
+
+        htsingleq: htsingleq {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HTSINGLEQ";
+            bindings = <&singlequote>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+            flavor = "tap-preferred";
+        };
+
+        htdoubleq: htdoubleq {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HTDOUBLEQ";
+            bindings = <&doublequote>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+            flavor = "tap-preferred";
+        };
     };
 };
 
@@ -299,14 +308,6 @@
                 <&kp LGUI>;
 
             label = "CMG";
-        };
-
-        gotosleep: gotosleep {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp C_POWER>, <&macro_release>;
-
-            label = "GOTOSLEEP";
         };
 
         interrobang: interrobang {
@@ -415,6 +416,32 @@
 
             label = "SOS";
         };
+
+        doublequote: doublequote {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&kp DOUBLE_QUOTES &kp DOUBLE_QUOTES>,
+                <&macro_wait_time 20>,
+                <&kp LEFT>,
+                <&macro_release>;
+
+            label = "DOUBLEQUOTE";
+        };
+
+        singlequote: singlequote {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&kp SQT &kp SQT>,
+                <&macro_wait_time 20>,
+                <&kp LEFT>,
+                <&macro_release>;
+
+            label = "SINGLEQUOTE";
+        };
     };
 
     keymap {
@@ -429,9 +456,9 @@
 
             display-name = "Base";
             bindings = <
-&mt LEFT_ALT ESCAPE  &mt C_AL_COFFEE Q  &ag W  &kp E     &ag R            &ag T                   &ag Y        &kp U                            &ag I      &ag O          &ag P                &tog 1
-&meh 0 TAB           &ag A              &ag S  &ag D     &ag F            &htpaste 0 G            &kp H        &kp J                            &kp K      &kp L          &htquote LEFT_ALT 0  &htcolon 0 0
-&mt LCTRL LC(TAB)    &ag Z              &ag X  &ag C     &ag V            &htcopy 0 B             &ag N        &kp M                            &kp COMMA  &htdots 0 DOT  &tdques              &tog 3
+&mt LEFT_ALT ESCAPE  &mt C_AL_COFFEE Q  &ag W  &kp E     &ag R            &ag T                   &ag Y        &kp U                            &ag I      &ag O          &ag P     &tog 1
+&meh 0 TAB           &ag A              &ag S  &ag D     &ag F            &htpaste 0 G            &kp H        &kp J                            &kp K      &kp L          &tdquote  &tdcolon
+&mt LCTRL LC(TAB)    &ag Z              &ag X  &ag C     &ag V            &htcopy 0 B             &ag N        &kp M                            &kp COMMA  &htdots 0 DOT  &tdques   &tog 3
                                                &kp LGUI  &lt 2 BACKSPACE  &mt LEFT_SHIFT ENTER    &lt 1 SPACE  &mt LG(BACKSPACE) LA(BACKSPACE)  &hyper
             >;
         };
@@ -445,9 +472,9 @@
 
             display-name = "Lower";
             bindings = <
-&trans  &kp N1        &kp N2  &kp N3        &kp N4    &kp N5       &kp N6    &kp N7     &kp N8      &kp N9      &htcurve 0 N0  &tog 1
-&trans  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp PLUS  &kp MINUS    &kp HOME  &tdsquare  &kp MINUS   &none       &kp PLUS       &kp BACKSLASH
-&trans  &kp N7        &kp N8  &kp N9        &kp N0    &trans       &kp END   &tdcurly   &kp C_PREV  &kp PERIOD  &kp C_NEXT     &none
+&trans  &kp N1        &kp N2  &kp N3        &kp N4    &kp N5       &kp N6    &kp N7     &kp N8       &kp N9      &htcurve 0 N0  &tog 1
+&trans  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp PLUS  &kp MINUS    &kp HOME  &tdsquare  &htdash 0 0  &none       &kp PLUS       &kp BACKSLASH
+&trans  &kp N7        &kp N8  &kp N9        &kp N0    &trans       &kp END   &tdcurly   &kp C_PREV   &kp PERIOD  &kp C_NEXT     &none
                               &trans        &trans    &trans       &trans    &kp EQUAL  &trans
             >;
         };
