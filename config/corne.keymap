@@ -139,9 +139,9 @@
             flavor = "tap-preferred";
         };
 
-        hyper: hyper {
+        hthyper: hthyper {
             compatible = "zmk,behavior-hold-tap";
-            label = "HYPER";
+            label = "HTHYPER";
             bindings = <&chaos>, <&kp>;
 
             #binding-cells = <2>;
@@ -214,12 +214,12 @@
             tapping-term-ms = <250>;
         };
 
-        tdhyper: tdhyper {
+        hyper: hyper {
             compatible = "zmk,behavior-tap-dance";
-            label = "TDHYPER";
+            label = "HYPER";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
-            bindings = <&hyper 0 ESC>, <&mt C_AL_LOCK LC(C_POWER)>, <&sos>;
+            bindings = <&mt LS(LG(LA(LCTRL))) ESCAPE>, <&kp C_AL_LOCK>, <&sos>;
         };
 
         tddash: tddash {
@@ -456,10 +456,10 @@
 
             display-name = "Base";
             bindings = <
-&kp LEFT_ALT       &ag Q  &ag W  &kp E     &ag R            &ag T                   &ag Y        &kp U                            &ag I            &ag O          &ag P     &tog 1
-&meh 0 TAB         &ag A  &ag S  &ag D     &ag F            &htpaste 0 G            &kp H        &kp J                            &kp K            &kp L          &tdquote  &tdcolon
-&mt LCTRL LC(TAB)  &ag Z  &ag X  &ag C     &ag V            &htcopy 0 B             &ag N        &kp M                            &kp COMMA        &htdots 0 DOT  &tdques   &tog 3
-                                 &kp LGUI  &lt 2 BACKSPACE  &mt LEFT_SHIFT ENTER    &lt 1 SPACE  &mt LG(BACKSPACE) LA(BACKSPACE)  &hyper 0 ESCAPE
+&kp LEFT_ALT       &ag Q  &ag W  &kp E     &ag R            &ag T                   &ag Y        &kp U                            &ag I      &ag O          &ag P     &tog 1
+&meh 0 TAB         &ag A  &ag S  &ag D     &ag F            &htpaste 0 G            &kp H        &kp J                            &kp K      &kp L          &tdquote  &tdcolon
+&mt LCTRL LC(TAB)  &ag Z  &ag X  &ag C     &ag V            &htcopy 0 B             &ag N        &kp M                            &kp COMMA  &htdots 0 DOT  &tdques   &tog 3
+                                 &kp LGUI  &lt 2 BACKSPACE  &mt LEFT_SHIFT ENTER    &lt 1 SPACE  &mt LG(BACKSPACE) LA(BACKSPACE)  &hyper
             >;
         };
 
