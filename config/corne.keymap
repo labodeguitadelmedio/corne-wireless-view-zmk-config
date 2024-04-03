@@ -222,7 +222,7 @@
             bindings =
                 <&mt LS(LG(LA(LCTRL))) ESCAPE>,
                 <&mt C_AL_LOCK C_POWER>,
-                <&sos>;
+                <&htsos LC(C_POWER) 0>;
         };
 
         tddash: tddash {
@@ -248,6 +248,16 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HTDOUBLEQ";
             bindings = <&doublequote>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+            flavor = "tap-preferred";
+        };
+
+        htsos: htsos {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HTSOS";
+            bindings = <&kp>, <&sos>;
 
             #binding-cells = <2>;
             tapping-term-ms = <250>;
