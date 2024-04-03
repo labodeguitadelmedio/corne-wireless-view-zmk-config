@@ -218,10 +218,10 @@
             compatible = "zmk,behavior-tap-dance";
             label = "HYPER";
             #binding-cells = <0>;
-            tapping-term-ms = <250>;
+            tapping-term-ms = <300>;
             bindings =
                 <&mt LS(LG(LA(LCTRL))) ESCAPE>,
-                <&mt C_AL_LOCK LC(C_POWER)>,
+                <&mt C_AL_LOCK C_POWER>,
                 <&sos>;
         };
 
@@ -444,6 +444,14 @@
                 <&macro_release>;
 
             label = "SINGLEQUOTE";
+        };
+
+        powerup: powerup {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp LC(C_POWER)>, <&macro_release>;
+
+            label = "POWERUP";
         };
     };
 
