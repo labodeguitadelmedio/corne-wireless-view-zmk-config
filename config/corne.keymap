@@ -522,10 +522,10 @@
 
         adjust_layer {
             bindings = <
-&bt BT_CLR  &none  &none  &none   &ag R   &none           &ag Y   &studio_unlock         &none    &out OUT_BLE  &ag P     &bt BT_NXT
-&trans      &ag A  &ag S  &trans  &ag F   &htpaste 0 G    &trans  &none                  &none    &tdup         &none     &none
-&trans      &ag Z  &ag X  &ag C   &ag V   &htcopy 0 B     &ag N   &trans                 &tdleft  &tddown       &tdright  &tog 3
-                          &trans  &trans  &trans          &trans  &mt LG(BSPC) LA(BSPC)  &trans
+&hyper  &none  &none  &none   &ag R   &none           &ag Y   &studio_unlock         &none    &out OUT_BLE  &ag P     &bt BT_NXT
+&trans  &ag A  &ag S  &trans  &ag F   &htpaste 0 G    &trans  &none                  &none    &tdup         &none     &none
+&trans  &ag Z  &ag X  &ag C   &ag V   &htcopy 0 B     &ag N   &trans                 &tdleft  &tddown       &tdright  &tog 3
+                      &trans  &trans  &trans          &trans  &mt LG(BSPC) LA(BSPC)  &trans
             >;
 
             label = "Adjust";
