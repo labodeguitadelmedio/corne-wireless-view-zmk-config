@@ -496,9 +496,9 @@
 
             display-name = "Lower";
             bindings = <
-&trans  &kp N1        &kp N2  &kp N3        &kp N4    &kp N5       &kp N6    &kp N7     &kp N8       &kp N9      &htcurve 0 N0  &tog 1
-&trans  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp PLUS  &kp MINUS    &kp HOME  &tdsquare  &htdash 0 0  &none       &kp PLUS       &kp BACKSLASH
-&trans  &kp N7        &kp N8  &kp N9        &kp N0    &trans       &kp END   &tdcurly   &kp C_PREV   &kp PERIOD  &kp C_NEXT     &none
+&trans  &ag N1        &ag N2  &ag N3        &ag N4    &ag N5       &ag N6    &ag N7     &ag N8         &ag N9      &ag N0        &tog 1
+&trans  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp PLUS  &kp MINUS    &kp HOME  &tdsquare  &htdash 0 0    &none       &kp PLUS      &kp BACKSLASH
+&trans  &kp N7        &kp N8  &kp N9        &kp N0    &trans       &kp END   &tdcurly   &kp LG(MINUS)  &kp PERIOD  &kp LG(PLUS)  &none
                               &trans        &trans    &trans       &trans    &kp EQUAL  &trans
             >;
         };
@@ -512,16 +512,16 @@
 
             display-name = "Raise";
             bindings = <
-&bootloader  &kp EXCL          &kp AT                &kp HASH    &kp LA(NUMBER_3)  &kp PRCNT        &kp CARET  &kp AMPS  &kp ASTERISK   &kp LPAR           &kp RPAR      &none
-&trans       &kp LA(NUMBER_2)  &kp LS(LA(NUMBER_2))  &kp DOLLAR  &none             &none            &none      &trans    &kp MINUS      &kp C_VOLUME_UP    &kp PLUS      &kp BACKSLASH
-&trans       &kp CAPSLOCK      &none                 &none       &none             &none            &none      &trans    &kp LG(MINUS)  &kp C_VOLUME_DOWN  &kp LG(PLUS)  &none
-                                                     &trans      &trans            &kp LS(ENTER)    &trans     &trans    &trans
+&bootloader  &mt F1 EXCL       &mt F2 AT             &mt F3 HASH  &mt F4 LA(NUMBER_3)  &mt F5 PERCENT    &mt F6 CARET      &mt F7 AMPS  &mt F8 ASTERISK  &mt F9 LPAR        &mt F10 RPAR  &none
+&trans       &kp LA(NUMBER_2)  &kp LS(LA(NUMBER_2))  &kp DOLLAR   &none                &none             &none             &trans       &kp MINUS        &kp C_VOLUME_UP    &kp PLUS      &kp BACKSLASH
+&trans       &kp CAPSLOCK      &bt BT_NXT            &none        &none                &none             &kp C_PLAY_PAUSE  &trans       &kp C_PREVIOUS   &kp C_VOLUME_DOWN  &kp C_NEXT    &none
+                                                     &trans       &trans               &kp LS(ENTER)     &trans            &trans       &trans
             >;
         };
 
         adjust_layer {
             bindings = <
-&hyper  &none  &none  &none   &ag R   &none           &ag Y   &studio_unlock         &none    &none    &none     &bt BT_NXT
+&hyper  &none  &none  &none   &ag R   &none           &ag Y   &studio_unlock         &none    &none    &none     &none
 &trans  &ag A  &ag S  &trans  &ag F   &htpaste 0 G    &trans  &none                  &none    &tdup    &none     &none
 &trans  &ag Z  &ag X  &ag C   &ag V   &htcopy 0 B     &ag N   &trans                 &tdleft  &tddown  &tdright  &tog 3
                       &trans  &trans  &trans          &trans  &mt LG(BSPC) LA(BSPC)  &trans
