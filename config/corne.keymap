@@ -67,7 +67,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TDLEFT";
             #binding-cells = <0>;
-            bindings = <&mt LC(LEFT) LEFT>, <&mt LG(LEFT_BRACKET) LEFT>;
+            bindings = <&mt LA(LEFT) LEFT>, <&mt LG(LEFT_ARROW) LEFT>;
 
             tapping-term-ms = <250>;
         };
@@ -86,7 +86,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TDRIGHT";
             #binding-cells = <0>;
-            bindings = <&mt LC(RIGHT) RIGHT>, <&mt LG(RIGHT_BRACKET) RIGHT>;
+            bindings = <&mt LA(RIGHT_ARROW) RIGHT>, <&mt LG(RIGHT_ARROW) RIGHT>;
 
             tapping-term-ms = <250>;
         };
@@ -514,9 +514,9 @@
 
             display-name = "Lower";
             bindings = <
-&trans  &ag N1        &ag N2  &ag N3        &ag N4    &ag N5       &ag N6    &ag N7     &ag N8         &ag N9      &ag N0        &tog 1
-&trans  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp PLUS  &kp MINUS    &kp HOME  &tdsquare  &htdash 0 0    &none       &kp PLUS      &kp BACKSLASH
-&trans  &kp N7        &kp N8  &kp N9        &kp N0    &trans       &kp END   &tdcurly   &kp LG(MINUS)  &kp PERIOD  &kp LG(PLUS)  &trans
+&trans  &ag N1        &ag N2  &ag N3        &ag N4    &ag N5       &ag N6    &ag N7     &ag N8                          &ag N9      &ag N0                          &tog 1
+&trans  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp PLUS  &kp MINUS    &kp HOME  &tdsquare  &htdash 0 0                     &none       &kp PLUS                        &kp BACKSLASH
+&trans  &kp N7        &kp N8  &kp N9        &kp N0    &trans       &kp END   &tdcurly   &mt LG(LEFT_BRACKET) LG(MINUS)  &kp PERIOD  &mt LG(RIGHT_BRACKET) LG(PLUS)  &trans
                               &trans        &trans    &trans       &trans    &kp EQUAL  &trans
             >;
         };
@@ -540,7 +540,7 @@
         adjust_layer {
             bindings = <
 &hyper  &none  &none  &none   &ag R   &none     &ag Y   &studio_unlock         &none    &none    &none     &bt BT_NXT
-&trans  &ag A  &ag S  &trans  &ag F   &ag G     &trans  &none                  &none    &tdup    &none     &none
+&trans  &ag A  &ag S  &ag D   &ag F   &ag G     &trans  &none                  &none    &tdup    &none     &none
 &trans  &ag Z  &ag X  &ag C   &ag V   &ag B     &ag N   &trans                 &tdleft  &tddown  &tdright  &trans
                       &trans  &trans  &trans    &trans  &mt LG(BSPC) LA(BSPC)  &trans
             >;
