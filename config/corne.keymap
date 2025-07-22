@@ -176,31 +176,6 @@
             #binding-cells = <2>;
             tapping-term-ms = <250>;
         };
-
-        ht_emdash: ht_emdash {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HT_EMDASH";
-            bindings = <&emdash>;
-            #binding-cells = <2>;
-            tapping-term-ms = <250>;
-            flavor = "tap-preferred";
-        };
-
-        ht_endash: ht_endash {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HT_ENDASH";
-            bindings = <&endash>;
-            #binding-cells = <2>;
-            tapping-term-ms = <250>;
-            flavor = "tap-preferred";
-        };
-
-        td_dash: td_dash {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_DASH";
-            #binding-cells = <0>;
-            bindings = <&mt UNDERSCORE MINUS>, <&ht_emdash 0>, <&ht_endash 0>;
-        };
     };
 };
 
@@ -304,22 +279,6 @@
             bindings = <&macro_tap>, <&kp LG(RIGHT_BRACKET)>, <&macro_release>;
 
             label = "CMD_SQUARE_CLOSE";
-        };
-
-        emdash: emdash {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LS(LA(MINUS))>, <&macro_release>;
-
-            label = "EMDASH";
-        };
-
-        endash: endash {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LA(MINUS)>, <&macro_release>;
-
-            label = "ENDASH";
         };
     };
 
