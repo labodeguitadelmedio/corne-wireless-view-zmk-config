@@ -33,14 +33,14 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&htsingleq 0 SQT>, <&htdoubleq 0 DOUBLE_QUOTES>;
+            bindings = <&kp SQT>, <&kp DQT>;
         };
 
         tdcolon: tap_dance_colon {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
-            bindings = <&mt LS(LCTRL) SEMI>, <&kp COLON>;
+            bindings = <&kp SEMICOLON>, <&kp COLON>;
         };
 
         htcopy: htcopy {
@@ -132,7 +132,7 @@
         htdash: htdash {
             compatible = "zmk,behavior-hold-tap";
             label = "HTDASH";
-            bindings = <&dashdash>, <&tddash>;
+            bindings = <&emdash>, <&tddash>;
 
             #binding-cells = <2>;
             tapping-term-ms = <250>;
@@ -172,7 +172,7 @@
         htsquare: htsquare {
             compatible = "zmk,behavior-hold-tap";
             label = "HTSQUARE";
-            bindings = <&squareends>, <&kp>;
+            bindings = <&cmd_square_open>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <250>;
@@ -182,7 +182,7 @@
         htcurly: htcurly {
             compatible = "zmk,behavior-hold-tap";
             label = "HTCURLY";
-            bindings = <&curlyends>, <&kp>;
+            bindings = <&cmd_square_close>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <250>;
@@ -475,6 +475,38 @@
 
             label = "POWERUP";
         };
+
+        cmd_square_open: cmd_square_open {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp LG(LEFT_BRACKET)>, <&macro_release>;
+
+            label = "CMD_SQUARE_OPEN";
+        };
+
+        cmd_square_close: cmd_square_close {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp LG(RIGHT_BRACKET)>, <&macro_release>;
+
+            label = "CMD_SQUARE_CLOSE";
+        };
+
+        emdash: emdash {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp LS(LA(MINUS))>, <&macro_release>;
+
+            label = "EMDASH";
+        };
+
+        endash: endash {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp LA(MINUS)>, <&macro_release>;
+
+            label = "ENDASH";
+        };
     };
 
     combos {
@@ -514,9 +546,9 @@
 
             display-name = "Lower";
             bindings = <
-&trans  &ag N1        &ag N2  &ag N3        &ag N4    &ag N5       &ag N6    &ag N7     &ag N8                          &ag N9      &ag N0                          &tog 1
-&trans  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp PLUS  &kp MINUS    &kp HOME  &tdsquare  &htdash 0 0                     &none       &kp PLUS                        &kp BACKSLASH
-&trans  &kp N7        &kp N8  &kp N9        &kp N0    &trans       &kp END   &tdcurly   &mt LG(LEFT_BRACKET) LG(MINUS)  &kp PERIOD  &mt LG(RIGHT_BRACKET) LG(PLUS)  &trans
+&trans  &ag N1        &ag N2  &ag N3        &ag N4    &ag N5       &ag N6    &ag N7     &ag N8                &ag N9      &ag N0        &tog 1
+&trans  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp PLUS  &kp MINUS    &kp HOME  &tdsquare  &mt UNDERSCORE MINUS  &none       &kp PLUS      &kp BACKSLASH
+&trans  &kp N7        &kp N8  &kp N9        &kp N0    &trans       &kp END   &tdcurly   &kp LG(MINUS)         &kp PERIOD  &kp LG(PLUS)  &trans
                               &trans        &trans    &trans       &trans    &kp EQUAL  &trans
             >;
         };
@@ -530,9 +562,9 @@
 
             display-name = "Raise";
             bindings = <
-&trans  &mt F1 EXCL       &mt F2 AT             &mt F3 HASH  &mt F4 LA(NUMBER_3)  &mt F5 PERCENT    &mt F6 CARET      &mt F7 AMPS  &mt F8 ASTERISK  &mt F9 LPAR        &mt F10 RPAR  &none
-&trans  &kp LA(NUMBER_2)  &kp LS(LA(NUMBER_2))  &kp DOLLAR   &none                &none             &none             &trans       &kp MINUS        &kp C_VOLUME_UP    &kp PLUS      &kp BACKSLASH
-&trans  &kp CAPSLOCK      &none                 &none        &none                &none             &kp C_PLAY_PAUSE  &trans       &kp C_PREVIOUS   &kp C_VOLUME_DOWN  &kp C_NEXT    &trans
+&trans  &mt F1 EXCL       &mt F2 AT             &mt F3 HASH  &mt F4 LA(NUMBER_3)  &mt F5 PERCENT    &mt F6 CARET      &mt F7 AMPS  &mt F8 ASTERISK       &mt F9 LPAR        &mt F10 RPAR  &none
+&trans  &kp LA(NUMBER_2)  &kp LS(LA(NUMBER_2))  &kp DOLLAR   &none                &none             &none             &trans       &mt UNDERSCORE MINUS  &kp C_VOLUME_UP    &kp PLUS      &kp BACKSLASH
+&trans  &kp CAPSLOCK      &none                 &none        &none                &none             &kp C_PLAY_PAUSE  &trans       &kp C_PREVIOUS        &kp C_VOLUME_DOWN  &kp C_NEXT    &trans
                                                 &trans       &trans               &kp LS(ENTER)     &trans            &trans       &trans
             >;
         };
