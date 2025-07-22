@@ -43,26 +43,6 @@
             bindings = <&kp SEMICOLON>, <&kp COLON>;
         };
 
-        htcopy: htcopy {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HTCOPY";
-            bindings = <&copy_all>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            flavor = "tap-preferred";
-        };
-
-        htpaste: htpaste {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HTPASTE";
-            bindings = <&paste_all>, <&kp>;
-
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-        };
-
         tdleft: tdleft {
             compatible = "zmk,behavior-tap-dance";
             label = "TDLEFT";
@@ -109,16 +89,6 @@
             tapping-term-ms = <250>;
         };
 
-        htques: htques {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HTQUES";
-            bindings = <&wth>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <250>;
-            flavor = "tap-preferred";
-        };
-
         htdots: htdots {
             compatible = "zmk,behavior-hold-tap";
             label = "HTDOTS";
@@ -127,36 +97,6 @@
             #binding-cells = <2>;
             tapping-term-ms = <250>;
             flavor = "tap-preferred";
-        };
-
-        htdash: htdash {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HTDASH";
-            bindings = <&emdash>, <&tddash>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <250>;
-            flavor = "tap-preferred";
-        };
-
-        hthyper: hthyper {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HTHYPER";
-            bindings = <&chaos>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <250>;
-            flavor = "hold-preferred";
-        };
-
-        meh: meh {
-            compatible = "zmk,behavior-hold-tap";
-            label = "MEH";
-            bindings = <&blah>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <250>;
-            flavor = "hold-preferred";
         };
 
         htslash: htslash {
@@ -207,16 +147,6 @@
             label = "TDCURLY";
         };
 
-        htcurve: htcurve {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HTCURVE";
-            bindings = <&curveends>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <250>;
-            flavor = "tap-preferred";
-        };
-
         hyper: hyper {
             compatible = "zmk,behavior-tap-dance";
             label = "HYPER";
@@ -226,35 +156,6 @@
                 <&mt LS(LG(LA(LCTRL))) ESCAPE>,
                 <&mt C_AL_LOCK C_POWER>,
                 <&htsos LC(C_POWER) 0>;
-        };
-
-        tddash: tddash {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TDDASH";
-            #binding-cells = <0>;
-            bindings = <&kp MINUS>, <&kp UNDERSCORE>;
-
-            tapping-term-ms = <250>;
-        };
-
-        htsingleq: htsingleq {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HTSINGLEQ";
-            bindings = <&singlequote>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <250>;
-            flavor = "tap-preferred";
-        };
-
-        htdoubleq: htdoubleq {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HTDOUBLEQ";
-            bindings = <&doublequote>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <250>;
-            flavor = "tap-preferred";
         };
 
         htsos: htsos {
@@ -280,34 +181,6 @@
 
 / {
     macros {
-        copy_all: copy_all {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp LG(A)>,
-                <&macro_wait_time 50>,
-                <&macro_tap>,
-                <&kp LG(C)>,
-                <&macro_release>;
-
-            label = "COPY_ALL";
-        };
-
-        paste_all: paste_all {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp LG(A)>,
-                <&macro_wait_time 50>,
-                <&macro_tap>,
-                <&kp LG(V)>,
-                <&macro_release>;
-
-            label = "PASTE_ALL";
-        };
-
         ag: ag {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
@@ -357,25 +230,6 @@
             label = "ELLIPSIS";
         };
 
-        dashdash: dashdash {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp MINUS &kp MINUS>, <&macro_release>;
-
-            label = "DASHDASH";
-        };
-
-        chaos: chaos {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp LA(LG(LC(LEFT_SHIFT)))>,
-                <&macro_release>;
-
-            label = "CHAOS";
-        };
-
         blah: blah {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -395,77 +249,12 @@
             label = "WTH";
         };
 
-        curlyends: curlyends {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp LEFT_BRACE &kp RIGHT_BRACE>,
-                <&macro_wait_time 20>,
-                <&kp LEFT>,
-                <&macro_release>;
-
-            label = "CURLYENDS";
-        };
-
-        squareends: squareends {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp LEFT_BRACKET &kp RIGHT_BRACKET>,
-                <&macro_wait_time 20>,
-                <&kp LEFT>,
-                <&macro_release>;
-
-            label = "SQUAREENDS";
-        };
-
-        curveends: curveends {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS>,
-                <&macro_wait_time 20>,
-                <&kp LEFT>,
-                <&macro_release>;
-
-            label = "CURVEENDS";
-        };
-
         sos: sos {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap>, <&kp LA(LG(ESCAPE))>, <&macro_release>;
 
             label = "SOS";
-        };
-
-        doublequote: doublequote {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp DOUBLE_QUOTES &kp DOUBLE_QUOTES>,
-                <&macro_wait_time 20>,
-                <&kp LEFT>,
-                <&macro_release>;
-
-            label = "DOUBLEQUOTE";
-        };
-
-        singlequote: singlequote {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp SQT &kp SQT>,
-                <&macro_wait_time 20>,
-                <&kp LEFT>,
-                <&macro_release>;
-
-            label = "SINGLEQUOTE";
         };
 
         powerup: powerup {
