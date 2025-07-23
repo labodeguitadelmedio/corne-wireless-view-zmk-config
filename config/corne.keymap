@@ -22,30 +22,29 @@
 
 / {
     behaviors {
-        tdques: tap_dance_ques {
+        tdques: td_ques {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
             bindings = <&htslash 0 SLASH>, <&kp QUESTION>, <&wth>;
         };
 
-        tdquote: tap_dance_quote {
+        tdquote: td_quote {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp SQT>, <&kp DQT>;
         };
 
-        tdcolon: tap_dance_colon {
+        tdcolon: td_colon {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
             bindings = <&kp SEMICOLON>, <&kp COLON>;
         };
 
-        tdleft: tdleft {
+        tdleft: td_left {
             compatible = "zmk,behavior-tap-dance";
-            label = "TDLEFT";
             #binding-cells = <0>;
             bindings = <&mt LA(LEFT) LEFT>, <&mt LG(LEFT_ARROW) LEFT>;
 
@@ -62,27 +61,26 @@
             flavor = "tap-preferred";
         };
 
-        tdright: tdright {
+        tdright: td_right_arrow {
             compatible = "zmk,behavior-tap-dance";
-            label = "TDRIGHT";
             #binding-cells = <0>;
             bindings = <&mt LA(RIGHT_ARROW) RIGHT>, <&mt LG(RIGHT_ARROW) RIGHT>;
 
             tapping-term-ms = <250>;
         };
 
-        tdup: tdup {
+        tdup: td_up_arrow {
             compatible = "zmk,behavior-tap-dance";
-            label = "TDUP";
+            label = "TDU";
             #binding-cells = <0>;
             bindings = <&mt PG_UP UP_ARROW>, <&mt HOME UP_ARROW>;
 
             tapping-term-ms = <250>;
         };
 
-        tddown: tddown {
+        tddown: td_down_arrow {
             compatible = "zmk,behavior-tap-dance";
-            label = "TDDOWN";
+            label = "TDDOW";
             #binding-cells = <0>;
             bindings = <&mt PG_DN DOWN>, <&mt END DOWN>;
 
@@ -174,6 +172,36 @@
             bindings = <&mo>, <&tog>;
 
             #binding-cells = <2>;
+            tapping-term-ms = <250>;
+        };
+
+        ht_emdash: ht_emdash {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HT_EMDASH";
+            bindings = <&kp>, <&doubledash>;
+
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <250>;
+        };
+
+        td_dash: td_dash {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_DASH";
+            #binding-cells = <0>;
+            bindings =
+                <&mt UNDER MINUS>,
+                <&ht_emdash LS(LA(MINUS)) 0>,
+                <&ht_endash LA(MINUS) 0>;
+        };
+
+        ht_endash: ht_endash {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HT_ENDASH";
+            bindings = <&kp>, <&tripledash>;
+
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
             tapping-term-ms = <250>;
         };
     };
@@ -280,6 +308,25 @@
 
             label = "CMD_SQUARE_CLOSE";
         };
+
+        doubledash: doubledash {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp MINUS &kp MINUS>, <&macro_release>;
+
+            label = "DOUBLEDASH";
+        };
+
+        tripledash: tripledash {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&kp MINUS &kp MINUS &kp MINUS>,
+                <&macro_release>;
+
+            label = "TRIPLEDASH";
+        };
     };
 
     combos {
@@ -319,9 +366,9 @@
 
             display-name = "Lower";
             bindings = <
-&trans  &ag N1        &ag N2  &ag N3        &ag N4    &ag N5       &ag N6    &ag N7     &ag N8                &ag N9      &ag N0        &tog 1
-&trans  &ag NUMBER_4  &ag N5  &ag NUMBER_6  &kp PLUS  &kp MINUS    &kp HOME  &tdsquare  &mt UNDERSCORE MINUS  &none       &kp PLUS      &kp BACKSLASH
-&trans  &ag N7        &ag N8  &ag N9        &ag N0    &trans       &kp END   &tdcurly   &kp LG(MINUS)         &ag PERIOD  &kp LG(PLUS)  &trans
+&trans  &ag N1        &ag N2  &ag N3        &ag N4    &ag N5       &ag N6    &ag N7     &ag N8         &ag N9      &ag N0        &tog 1
+&trans  &ag NUMBER_4  &ag N5  &ag NUMBER_6  &kp PLUS  &kp MINUS    &kp HOME  &tdsquare  &td_dash       &none       &kp PLUS      &kp BACKSLASH
+&trans  &ag N7        &ag N8  &ag N9        &ag N0    &trans       &kp END   &tdcurly   &kp LG(MINUS)  &ag PERIOD  &kp LG(PLUS)  &trans
                               &trans        &trans    &trans       &trans    &kp EQUAL  &trans
             >;
         };
@@ -336,7 +383,7 @@
             display-name = "Raise";
             bindings = <
 &trans  &mt F1 EXCL       &mt F2 AT             &mt F3 HASH  &mt F4 LA(NUMBER_3)  &mt F5 PERCENT    &mt F6 CARET      &mt F7 AMPS  &mt F8 ASTERISK  &mt F9 LPAR        &mt F10 RPAR  &none
-&trans  &kp LA(NUMBER_2)  &kp LS(LA(NUMBER_2))  &kp DOLLAR   &none                &none             &none             &trans       &trans           &kp C_VOLUME_UP    &kp PLUS      &kp BACKSLASH
+&trans  &kp LA(NUMBER_2)  &kp LS(LA(NUMBER_2))  &kp DOLLAR   &none                &none             &none             &trans       &td_dash         &kp C_VOLUME_UP    &kp PLUS      &kp BACKSLASH
 &trans  &kp CAPSLOCK      &none                 &none        &none                &none             &kp C_PLAY_PAUSE  &trans       &kp C_PREVIOUS   &kp C_VOLUME_DOWN  &kp C_NEXT    &trans
                                                 &trans       &trans               &kp LS(ENTER)     &trans            &trans       &trans
             >;
