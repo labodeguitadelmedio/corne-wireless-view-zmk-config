@@ -46,7 +46,7 @@
         tdleft: td_left {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings = <&mt LA(LEFT) LEFT>, <&ag LEFT_ARROW>;
+            bindings = <&mt LA(LEFT) LEFT>, <&ag LEFT>;
 
             tapping-term-ms = <250>;
         };
@@ -73,7 +73,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TDU";
             #binding-cells = <0>;
-            bindings = <&mt PG_UP UP_ARROW>, <&ag UP_ARROW>;
+            bindings = <&ag UP_ARROW>, <&mt PG_UP UP_ARROW>;
 
             tapping-term-ms = <250>;
         };
@@ -82,7 +82,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TDDOW";
             #binding-cells = <0>;
-            bindings = <&mt PG_DN DOWN>, <&ag DOWN>;
+            bindings = <&ag DOWN>, <&mt PAGE_DOWN DOWN>;
 
             tapping-term-ms = <250>;
         };
@@ -330,9 +330,9 @@
 
             display-name = "Lower";
             bindings = <
-&trans  &ag N1        &ag N2  &ag N3        &ag N4    &ag N5       &ag N6        &ag N7     &ag N8               &ag N9                     &ag N0             &trans
-&trans  &ag NUMBER_4  &ag N5  &ag NUMBER_6  &ag PLUS  &ag MINUS    &ag UP_ARROW  &tdsquare  &td_dash             &mt LG(UP_ARROW) UP_ARROW  &ag PLUS           &kp BACKSLASH
-&trans  &ag N7        &ag N8  &ag N9        &ag N0    &trans       &ag DOWN      &tdcurly   &mt LG(MINUS) MINUS  &mt LG(DOWN) PERIOD        &mt LG(PLUS) PLUS  &trans
+&trans  &ag N1        &ag N2  &ag N3        &ag N4    &ag N5       &ag N6        &ag N7     &ag N8         &ag N9                     &ag N0        &trans
+&trans  &ag NUMBER_4  &ag N5  &ag NUMBER_6  &ag PLUS  &ag MINUS    &ag UP_ARROW  &tdsquare  &td_dash       &mt LG(UP_ARROW) UP_ARROW  &ag PLUS      &kp BACKSLASH
+&trans  &ag N7        &ag N8  &ag N9        &ag N0    &trans       &ag DOWN      &tdcurly   &kp LG(MINUS)  &mt LG(DOWN) PERIOD        &kp LG(PLUS)  &trans
                               &trans        &trans    &trans       &trans        &kp EQUAL  &trans
             >;
         };
