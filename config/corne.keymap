@@ -371,9 +371,9 @@
 
             display-name = "Lower";
             bindings = <
-&trans  &ag N1        &ag N2  &ag N3        &ag N4    &ag N5       &ag N6        &ag N7     &ag N8     &ag N9               &ag N0    &tog 1
-&trans  &ag NUMBER_4  &ag N5  &ag NUMBER_6  &ag PLUS  &ag MINUS    &ag UP_ARROW  &tdsquare  &td_dash   &ag UP_ARROW         &ag PLUS  &kp BACKSLASH
-&trans  &ag N7        &ag N8  &ag N9        &ag N0    &trans       &ag DOWN      &tdcurly   &ag MINUS  &mt LG(DOWN) PERIOD  &ag PLUS  &trans
+&trans  &ag N1        &ag N2  &ag N3        &ag N4    &ag N5       &ag N6        &ag N7     &ag N8               &ag N9                     &ag N0             &tog 1
+&trans  &ag NUMBER_4  &ag N5  &ag NUMBER_6  &ag PLUS  &ag MINUS    &ag UP_ARROW  &tdsquare  &td_dash             &mt LG(UP_ARROW) UP_ARROW  &ag PLUS           &kp BACKSLASH
+&trans  &ag N7        &ag N8  &ag N9        &ag N0    &trans       &ag DOWN      &tdcurly   &mt LG(MINUS) MINUS  &mt LG(DOWN) PERIOD        &mt LG(PLUS) PLUS  &trans
                               &trans        &trans    &trans       &trans        &kp EQUAL  &trans
             >;
         };
