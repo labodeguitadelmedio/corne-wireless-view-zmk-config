@@ -87,40 +87,10 @@
             tapping-term-ms = <250>;
         };
 
-        htdots: htdots {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HTDOTS";
-            bindings = <&ellipsis>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <250>;
-            flavor = "tap-preferred";
-        };
-
         htslash: htslash {
             compatible = "zmk,behavior-hold-tap";
             label = "HTSLASH";
             bindings = <&interrobang>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <250>;
-            flavor = "tap-preferred";
-        };
-
-        htsquare: htsquare {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HTSQUARE";
-            bindings = <&cmd_square_open>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <250>;
-            flavor = "tap-preferred";
-        };
-
-        htcurly: htcurly {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HTCURLY";
-            bindings = <&cmd_square_close>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <250>;
@@ -223,7 +193,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_3KEY";
             #binding-cells = <0>;
-            bindings = <&mt F3 HASH>, <&kp LA(LS(NUMBER_2))>;
+            bindings = <&mt F3 HASH>, <&kp LA(LS(N2))>;
         };
     };
 };
@@ -266,17 +236,6 @@
                 <&macro_release>;
 
             label = "interrobang";
-        };
-
-        ellipsis: ellipsis {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp PERIOD &kp PERIOD &kp PERIOD>,
-                <&macro_release>;
-
-            label = "ELLIPSIS";
         };
 
         blah: blah {
@@ -371,9 +330,9 @@
 
             display-name = "Lower";
             bindings = <
-&trans  &ag N1        &ag N2  &ag N3        &ag N4    &ag N5       &ag N6        &ag N7     &ag N8               &ag N9                     &ag N0             &tog 1
-&trans  &ag NUMBER_4  &ag N5  &ag NUMBER_6  &ag PLUS  &ag MINUS    &ag UP_ARROW  &tdsquare  &td_dash             &mt LG(UP_ARROW) UP_ARROW  &ag PLUS           &kp BACKSLASH
-&trans  &ag N7        &ag N8  &ag N9        &ag N0    &trans       &ag DOWN      &tdcurly   &mt LG(MINUS) MINUS  &mt LG(DOWN) PERIOD        &mt LG(PLUS) PLUS  &trans
+&trans  &ag N1        &ag N2  &ag N3        &ag N4    &ag N5       &ag N6        &ag N7     &ag N8         &ag N9          &ag N0        &tog 1
+&trans  &ag NUMBER_4  &ag N5  &ag NUMBER_6  &ag PLUS  &ag MINUS    &ag UP_ARROW  &tdsquare  &td_dash       &none           &ag PLUS      &kp BACKSLASH
+&trans  &ag N7        &ag N8  &ag N9        &ag N0    &trans       &ag DOWN      &tdcurly   &kp LG(MINUS)  &ag LG(PERIOD)  &kp LG(PLUS)  &trans
                               &trans        &trans    &trans       &trans        &kp EQUAL  &trans
             >;
         };
