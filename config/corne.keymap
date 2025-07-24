@@ -216,7 +216,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_5KEY";
             #binding-cells = <0>;
-            bindings = <&mt F5 LA(PERCENT)>, <&kp LA(NUMBER_2)>;
+            bindings = <&mt F5 PERCENT>, <&kp LA(NUMBER_2)>;
         };
 
         td_3key: td_3key {
@@ -314,22 +314,6 @@
             label = "POWERUP";
         };
 
-        cmd_square_open: cmd_square_open {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LG(LEFT_BRACKET)>, <&macro_release>;
-
-            label = "CMD_SQUARE_OPEN";
-        };
-
-        cmd_square_close: cmd_square_close {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LG(RIGHT_BRACKET)>, <&macro_release>;
-
-            label = "CMD_SQUARE_CLOSE";
-        };
-
         doubledash: doubledash {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -387,9 +371,9 @@
 
             display-name = "Lower";
             bindings = <
-&trans  &ag N1        &ag N2  &ag N3        &ag N4    &ag N5       &ag N6        &ag N7     &ag N8     &ag N9      &ag N0    &tog 1
-&trans  &ag NUMBER_4  &ag N5  &ag NUMBER_6  &ag PLUS  &ag MINUS    &ag UP_ARROW  &tdsquare  &td_dash   &none       &ag PLUS  &kp BACKSLASH
-&trans  &ag N7        &ag N8  &ag N9        &ag N0    &trans       &ag DOWN      &tdcurly   &ag MINUS  &ag PERIOD  &ag PLUS  &trans
+&trans  &ag N1        &ag N2  &ag N3        &ag N4    &ag N5       &ag N6        &ag N7     &ag N8     &ag N9               &ag N0    &tog 1
+&trans  &ag NUMBER_4  &ag N5  &ag NUMBER_6  &ag PLUS  &ag MINUS    &ag UP_ARROW  &tdsquare  &td_dash   &ag UP_ARROW         &ag PLUS  &kp BACKSLASH
+&trans  &ag N7        &ag N8  &ag N9        &ag N0    &trans       &ag DOWN      &tdcurly   &ag MINUS  &mt LG(DOWN) PERIOD  &ag PLUS  &trans
                               &trans        &trans    &trans       &trans        &kp EQUAL  &trans
             >;
         };
@@ -403,10 +387,10 @@
 
             display-name = "Raise";
             bindings = <
-&trans  &mt F1 EXCL       &mt F2 AT                             &td_3key    &td_4key  &td_5key         &mt F6 CARET      &mt F7 AMPS  &mt F8 ASTERISK  &mt F9 LPAR        &mt F10 RPAR  &none
-&trans  &kp LA(NUMBER_2)  &kp LS(LA(NUMBER_2))                  &kp DOLLAR  &none     &none            &none             &trans       &td_dash         &kp C_VOLUME_UP    &ag PLUS      &kp BACKSLASH
-&trans  &kp CAPSLOCK      &sk C_AC_NEXT_KEYBOARD_LAYOUT_SELECT  &none       &none     &none            &kp C_PLAY_PAUSE  &trans       &kp C_PREVIOUS   &kp C_VOLUME_DOWN  &kp C_NEXT    &trans
-                                                                &trans      &trans    &kp LS(ENTER)    &trans            &trans       &trans
+&trans  &mt F1 EXCL       &mt F2 AT             &td_3key    &td_4key  &td_5key         &mt F6 CARET      &mt F7 AMPS  &mt F8 ASTERISK  &mt F9 LPAR        &mt F10 RPAR  &none
+&trans  &kp LA(NUMBER_2)  &kp LS(LA(NUMBER_2))  &kp DOLLAR  &none     &none            &none             &trans       &td_dash         &kp C_VOLUME_UP    &ag PLUS      &kp BACKSLASH
+&trans  &kp CAPSLOCK      &none                 &none       &none     &none            &kp C_PLAY_PAUSE  &trans       &kp C_PREVIOUS   &kp C_VOLUME_DOWN  &kp C_NEXT    &trans
+                                                &trans      &trans    &kp LS(ENTER)    &trans            &trans       &trans
             >;
         };
 
