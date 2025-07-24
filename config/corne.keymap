@@ -46,7 +46,7 @@
         tdleft: td_left {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings = <&mt LA(LEFT) LEFT>, <&mt LG(LEFT_ARROW) LEFT>;
+            bindings = <&mt LA(LEFT) LEFT>, <&ag LEFT_ARROW>;
 
             tapping-term-ms = <250>;
         };
@@ -64,7 +64,7 @@
         tdright: td_right_arrow {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings = <&mt LA(RIGHT_ARROW) RIGHT>, <&mt LG(RIGHT_ARROW) RIGHT>;
+            bindings = <&mt LA(RIGHT_ARROW) RIGHT>, <&ag RIGHT_ARROW>;
 
             tapping-term-ms = <250>;
         };
@@ -73,7 +73,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TDU";
             #binding-cells = <0>;
-            bindings = <&mt PG_UP UP_ARROW>, <&mt HOME UP_ARROW>;
+            bindings = <&mt PG_UP UP_ARROW>, <&ag UP_ARROW>;
 
             tapping-term-ms = <250>;
         };
@@ -82,7 +82,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TDDOW";
             #binding-cells = <0>;
-            bindings = <&mt PG_DN DOWN>, <&mt END DOWN>;
+            bindings = <&mt PG_DN DOWN>, <&ag DOWN>;
 
             tapping-term-ms = <250>;
         };
@@ -131,7 +131,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
-            bindings = <&htsquare 0 LEFT_BRACKET>, <&kp LEFT_BRACE>;
+            bindings = <&ag LEFT_BRACKET>, <&kp LEFT_BRACE>;
 
             label = "TDSQUARE";
         };
@@ -140,7 +140,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
-            bindings = <&htcurly 0 RIGHT_BRACKET>, <&kp RIGHT_BRACE>;
+            bindings = <&ag RIGHT_BRACKET>, <&kp RIGHT_BRACE>;
 
             label = "TDCURLY";
         };
@@ -203,6 +203,27 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <250>;
+        };
+
+        td_4key: td_4key {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_4KEY";
+            #binding-cells = <0>;
+            bindings = <&mt F4 LA(NUMBER_3)>, <&kp DOLLAR>;
+        };
+
+        td_5key: td_5key {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_5KEY";
+            #binding-cells = <0>;
+            bindings = <&mt F5 LA(PERCENT)>, <&kp LA(NUMBER_2)>;
+        };
+
+        td_3key: td_3key {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_3KEY";
+            #binding-cells = <0>;
+            bindings = <&mt F3 HASH>, <&kp LA(LS(NUMBER_2))>;
         };
     };
 };
@@ -350,7 +371,7 @@
 
             display-name = "Base";
             bindings = <
-&hyper                 &ag Q  &ag W  &ag E     &ag R            &ag T                   &ag Y        &ag U                            &ag I        &ag O    &ag P     &tog 1
+&hyper                 &ag Q  &ag W  &ag E     &ag R            &ag T                   &ag Y        &ag U                            &ag I        &ag O    &ag P     &mo_tog 1 1
 &mt LS(LA(LCTRL)) TAB  &ag A  &ag S  &ag D     &ag F            &ag G                   &ag H        &ag J                            &ag K        &ag L    &tdquote  &tdcolon
 &mt LCTRL LC(TAB)      &ag Z  &ag X  &ag C     &ag V            &ag B                   &ag N        &ag M                            &ag COMMA    &ag DOT  &tdques   &sk LGUI
                                      &sk LALT  &lt 2 BACKSPACE  &mt LEFT_SHIFT ENTER    &lt 1 SPACE  &mt LG(BACKSPACE) LA(BACKSPACE)  &mo_tog 3 3
@@ -366,10 +387,10 @@
 
             display-name = "Lower";
             bindings = <
-&trans  &ag N1        &ag N2  &ag N3        &ag N4    &ag N5       &ag N6    &ag N7     &ag N8         &ag N9      &ag N0        &tog 1
-&trans  &ag NUMBER_4  &ag N5  &ag NUMBER_6  &kp PLUS  &kp MINUS    &kp HOME  &tdsquare  &td_dash       &none       &kp PLUS      &kp BACKSLASH
-&trans  &ag N7        &ag N8  &ag N9        &ag N0    &trans       &kp END   &tdcurly   &kp LG(MINUS)  &ag PERIOD  &kp LG(PLUS)  &trans
-                              &trans        &trans    &trans       &trans    &kp EQUAL  &trans
+&trans  &ag N1        &ag N2  &ag N3        &ag N4    &ag N5       &ag N6        &ag N7     &ag N8     &ag N9      &ag N0    &tog 1
+&trans  &ag NUMBER_4  &ag N5  &ag NUMBER_6  &ag PLUS  &ag MINUS    &ag UP_ARROW  &tdsquare  &td_dash   &none       &ag PLUS  &kp BACKSLASH
+&trans  &ag N7        &ag N8  &ag N9        &ag N0    &trans       &ag DOWN      &tdcurly   &ag MINUS  &ag PERIOD  &ag PLUS  &trans
+                              &trans        &trans    &trans       &trans        &kp EQUAL  &trans
             >;
         };
 
@@ -382,10 +403,10 @@
 
             display-name = "Raise";
             bindings = <
-&trans  &mt F1 EXCL       &mt F2 AT             &mt F3 HASH  &mt F4 LA(NUMBER_3)  &mt F5 PERCENT    &mt F6 CARET      &mt F7 AMPS  &mt F8 ASTERISK  &mt F9 LPAR        &mt F10 RPAR  &none
-&trans  &kp LA(NUMBER_2)  &kp LS(LA(NUMBER_2))  &kp DOLLAR   &none                &none             &none             &trans       &td_dash         &kp C_VOLUME_UP    &kp PLUS      &kp BACKSLASH
-&trans  &kp CAPSLOCK      &none                 &none        &none                &none             &kp C_PLAY_PAUSE  &trans       &kp C_PREVIOUS   &kp C_VOLUME_DOWN  &kp C_NEXT    &trans
-                                                &trans       &trans               &kp LS(ENTER)     &trans            &trans       &trans
+&trans  &mt F1 EXCL       &mt F2 AT                             &td_3key    &td_4key  &td_5key         &mt F6 CARET      &mt F7 AMPS  &mt F8 ASTERISK  &mt F9 LPAR        &mt F10 RPAR  &none
+&trans  &kp LA(NUMBER_2)  &kp LS(LA(NUMBER_2))                  &kp DOLLAR  &none     &none            &none             &trans       &td_dash         &kp C_VOLUME_UP    &ag PLUS      &kp BACKSLASH
+&trans  &kp CAPSLOCK      &sk C_AC_NEXT_KEYBOARD_LAYOUT_SELECT  &none       &none     &none            &kp C_PLAY_PAUSE  &trans       &kp C_PREVIOUS   &kp C_VOLUME_DOWN  &kp C_NEXT    &trans
+                                                                &trans      &trans    &kp LS(ENTER)    &trans            &trans       &trans
             >;
         };
 
