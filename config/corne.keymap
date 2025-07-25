@@ -73,7 +73,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TDU";
             #binding-cells = <0>;
-            bindings = <&ag UP_ARROW>, <&mt PG_UP UP_ARROW>;
+            bindings = <&mt PAGE_UP UP_ARROW>, <&ag UP_ARROW>;
 
             tapping-term-ms = <250>;
         };
@@ -82,7 +82,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TDDOW";
             #binding-cells = <0>;
-            bindings = <&ag DOWN>, <&mt PAGE_DOWN DOWN>;
+            bindings = <&mt PAGE_DOWN DOWN_ARROW>, <&ag DOWN_ARROW>;
 
             tapping-term-ms = <250>;
         };
@@ -330,10 +330,10 @@
 
             display-name = "Lower";
             bindings = <
-&trans  &ag N1        &ag N2  &ag N3        &ag N4    &ag N5       &ag N6        &ag N7     &ag N8         &ag N9                     &ag N0        &trans
-&trans  &ag NUMBER_4  &ag N5  &ag NUMBER_6  &ag PLUS  &ag MINUS    &ag UP_ARROW  &tdsquare  &td_dash       &mt LG(UP_ARROW) UP_ARROW  &ag PLUS      &kp BACKSLASH
-&trans  &ag N7        &ag N8  &ag N9        &ag N0    &trans       &ag DOWN      &tdcurly   &kp LG(MINUS)  &mt LG(DOWN) PERIOD        &kp LG(PLUS)  &trans
-                              &trans        &trans    &trans       &trans        &kp EQUAL  &trans
+&trans  &ag N1  &ag N2  &ag N3        &ag N4    &ag N5       &ag N6        &ag N7     &ag N8         &ag N9                     &ag N0        &trans
+&trans  &ag N4  &ag N5  &ag NUMBER_6  &ag PLUS  &ag MINUS    &ag UP_ARROW  &tdsquare  &td_dash       &mt LG(UP_ARROW) UP_ARROW  &kp PLUS      &kp BACKSLASH
+&trans  &ag N7  &ag N8  &ag N9        &ag N0    &trans       &ag DOWN      &tdcurly   &kp LG(MINUS)  &mt LG(DOWN) PERIOD        &kp LG(PLUS)  &trans
+                        &trans        &trans    &trans       &trans        &kp EQUAL  &trans
             >;
         };
 
@@ -346,17 +346,17 @@
 
             display-name = "Raise";
             bindings = <
-&trans  &mt F1 EXCL       &mt F2 AT             &td_3key    &td_4key  &td_5key         &mt F6 CARET      &mt F7 AMPS  &mt F8 ASTERISK  &mt F9 LPAR        &mt F10 RPAR  &none
-&trans  &kp LA(NUMBER_2)  &kp LS(LA(NUMBER_2))  &kp DOLLAR  &none     &none            &none             &trans       &td_dash         &kp C_VOLUME_UP    &ag PLUS      &kp BACKSLASH
-&trans  &kp CAPSLOCK      &none                 &none       &none     &none            &kp C_PLAY_PAUSE  &trans       &kp C_PREVIOUS   &kp C_VOLUME_DOWN  &kp C_NEXT    &trans
-                                                &trans      &trans    &kp LS(ENTER)    &trans            &trans       &trans
+&trans  &mt F1 EXCL   &mt F2 AT  &td_3key  &td_4key  &td_5key         &mt F6 CARET  &mt F7 AMPS  &mt F8 ASTERISK  &mt F9 LPAR        &mt F10 RPAR  &kp C_PP
+&trans  &none         &none      &none     &none     &none            &trans        &trans       &trans           &kp C_VOLUME_UP    &trans        &kp BACKSLASH
+&trans  &kp CAPSLOCK  &none      &none     &none     &none            &trans        &trans       &kp C_PREVIOUS   &kp C_VOLUME_DOWN  &kp C_NEXT    &trans
+                                 &trans    &trans    &kp LS(ENTER)    &trans        &trans       &trans
             >;
         };
 
         adjust_layer {
             bindings = <
 &hyper  &none  &none  &none   &ag R   &none     &ag Y   &studio_unlock         &none    &none    &none     &bt BT_NXT
-&trans  &ag A  &ag S  &ag D   &ag F   &ag G     &trans  &none                  &none    &tdup    &none     &none
+&trans  &ag A  &ag S  &ag D   &ag F   &ag G     &trans  &trans                 &none    &tdup    &none     &none
 &trans  &ag Z  &ag X  &ag C   &ag V   &ag B     &ag N   &trans                 &tdleft  &tddown  &tdright  &trans
                       &trans  &trans  &trans    &trans  &mt LG(BSPC) LA(BSPC)  &trans
             >;
