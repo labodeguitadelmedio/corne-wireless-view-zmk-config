@@ -314,7 +314,7 @@
 
             display-name = "Base";
             bindings = <
-&hyper                 &ag Q  &ag W  &ag E     &ag R            &ag T                   &ag Y        &ag U                            &ag I        &ag O    &ag P     &mo_tog 1 1
+&hyper                 &ag Q  &ag W  &ag E     &ag R            &ag T                   &ag Y        &ag U                            &ag I        &ag O    &ag P     &mo_tog 4 4
 &mt LS(LA(LCTRL)) TAB  &ag A  &ag S  &ag D     &ag F            &ag G                   &ag H        &ag J                            &ag K        &ag L    &tdquote  &tdcolon
 &mt LCTRL LC(TAB)      &ag Z  &ag X  &ag C     &ag V            &ag B                   &ag N        &ag M                            &ag COMMA    &ag DOT  &tdques   &sk LGUI
                                      &sk LALT  &lt 2 BACKSPACE  &mt LEFT_SHIFT ENTER    &lt 1 SPACE  &mt LG(BACKSPACE) LA(BACKSPACE)  &mo_tog 3 3
@@ -330,10 +330,10 @@
 
             display-name = "Lower";
             bindings = <
-&trans  &ag N1  &ag N2  &ag N3        &ag N4    &ag N5       &ag N6        &ag N7     &ag N8         &ag N9                     &ag N0        &trans
-&trans  &ag N4  &ag N5  &ag NUMBER_6  &ag PLUS  &ag MINUS    &ag UP_ARROW  &tdsquare  &td_dash       &mt LG(UP_ARROW) UP_ARROW  &kp PLUS      &kp BACKSLASH
-&trans  &ag N7  &ag N8  &ag N9        &ag N0    &trans       &ag DOWN      &tdcurly   &kp LG(MINUS)  &mt LG(DOWN) PERIOD        &kp LG(PLUS)  &trans
-                        &trans        &trans    &trans       &trans        &kp EQUAL  &trans
+&trans  &ag N1  &ag N2  &ag N3  &ag N4  &ag N5    &ag N6        &ag N7     &ag N8         &ag N9                     &ag N0        &trans
+&trans  &none   &none   &none   &none   &none     &ag UP_ARROW  &tdsquare  &td_dash       &mt LG(UP_ARROW) UP_ARROW  &kp PLUS      &kp BACKSLASH
+&trans  &none   &none   &none   &none   &none     &ag DOWN      &tdcurly   &kp LG(MINUS)  &mt LG(DOWN) PERIOD        &kp LG(PLUS)  &trans
+                        &trans  &trans  &trans    &trans        &trans     &trans
             >;
         };
 
@@ -346,7 +346,7 @@
 
             display-name = "Raise";
             bindings = <
-&trans  &mt F1 EXCL   &mt F2 AT  &td_3key  &td_4key  &td_5key         &mt F6 CARET  &mt F7 AMPS  &mt F8 ASTERISK  &mt F9 LPAR        &mt F10 RPAR  &kp C_PP
+&trans  &mt F1 EXCL   &mt F2 AT  &td_3key  &td_4key  &td_5key         &mt F6 CARET  &mt F7 AMPS  &mt F8 ASTERISK  &mt F9 LPAR        &mt F10 RPAR  &trans
 &trans  &none         &none      &none     &none     &none            &trans        &trans       &trans           &kp C_VOLUME_UP    &trans        &kp BACKSLASH
 &trans  &kp CAPSLOCK  &none      &none     &none     &none            &trans        &trans       &kp C_PREVIOUS   &kp C_VOLUME_DOWN  &kp C_NEXT    &trans
                                  &trans    &trans    &kp LS(ENTER)    &trans        &trans       &trans
@@ -355,13 +355,22 @@
 
         adjust_layer {
             bindings = <
-&hyper  &none  &none  &none   &ag R   &none     &ag Y   &studio_unlock         &none    &none    &none     &bt BT_NXT
+&trans  &none  &none  &none   &ag R   &none     &ag Y   &studio_unlock         &none    &none    &none     &trans
 &trans  &ag A  &ag S  &ag D   &ag F   &ag G     &trans  &trans                 &none    &tdup    &none     &none
 &trans  &ag Z  &ag X  &ag C   &ag V   &ag B     &ag N   &trans                 &tdleft  &tddown  &tdright  &trans
                       &trans  &trans  &trans    &trans  &mt LG(BSPC) LA(BSPC)  &trans
             >;
 
             label = "Adjust";
+        };
+
+        numpad {
+            bindings = <
+&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_ASTERISK  &none  &trans
+&none  &none         &none         &none         &none         &none           &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp PLUS         &none  &none
+&none  &none         &none         &none         &none         &none           &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_SUBTRACT  &none  &none
+                                   &none         &none         &none           &kp KP_EQUAL     &kp KP_NUMBER_0  &kp KP_DIVIDE
+            >;
         };
     };
 };
