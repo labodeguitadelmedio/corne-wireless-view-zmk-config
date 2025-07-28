@@ -320,6 +320,8 @@
 &mt LCTRL LC(TAB)      &ag Z  &ag X  &ag C     &ag V            &ag B                   &ag N        &ag M                            &ag COMMA    &ag DOT  &tdques   &sk LGUI
                                      &sk LALT  &lt 2 BACKSPACE  &mt LEFT_SHIFT ENTER    &lt 1 SPACE  &mt LG(BACKSPACE) LA(BACKSPACE)  &mo_tog 3 3
             >;
+
+            label = "Base";
         };
 
         lower_layer {
@@ -336,6 +338,8 @@
 &trans  &none   &none   &none   &none   &none     &ag DOWN      &tdcurly   &kp LG(MINUS)  &mt LG(DOWN) PERIOD        &kp LG(PLUS)  &trans
                         &trans  &trans  &trans    &trans        &trans     &trans
             >;
+
+            label = "Lower";
         };
 
         raise_layer {
@@ -352,6 +356,8 @@
 &trans  &kp CAPSLOCK  &none      &none     &none     &none            &trans        &trans       &kp C_PREVIOUS   &kp C_VOLUME_DOWN  &kp C_NEXT    &trans
                                  &trans    &trans    &kp LS(ENTER)    &trans        &trans       &trans
             >;
+
+            label = "Raise";
         };
 
         adjust_layer {
@@ -366,13 +372,15 @@
             label = "Adjust";
         };
 
-        numpad {
+        numpad_layer {
             bindings = <
 &none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_ASTERISK  &none          &trans
 &none  &none         &none         &none         &none         &none           &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp PLUS         &none          &none
 &none  &none         &none         &none         &none         &none           &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_SUBTRACT  &kp KP_DIVIDE  &none
                                    &none         &trans        &none           &kp KP_EQUAL     &trans           &kp KP_NUMBER_0
             >;
+
+            label = "Numpad and BT";
         };
     };
 };
