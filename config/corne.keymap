@@ -366,15 +366,13 @@
             label = "Adjust";
         };
 
-        numpad_layer {
-            display-name = "Numpad";
+        numpad {
             bindings = <
-&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_ASTERISK  &none  &trans
-&none  &none         &none         &none         &none         &none           &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp PLUS         &none  &none
-&none  &none         &none         &none         &none         &none           &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_SUBTRACT  &KP_DIVIDE  &none
-                                   &none         &trans         &none           &kp KP_EQUAL     &trans  &kp KP_NUMBER_0
+&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_ASTERISK  &none          &trans
+&none  &none         &none         &none         &none         &none           &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp PLUS         &none          &none
+&none  &none         &none         &none         &none         &none           &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_SUBTRACT  &kp KP_DIVIDE  &none
+                                   &none         &trans        &none           &kp KP_EQUAL     &trans           &kp KP_NUMBER_0
             >;
-            label = "Numpad";
         };
     };
 };
