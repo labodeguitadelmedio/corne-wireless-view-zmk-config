@@ -12,6 +12,7 @@
 #define LWR     1
 #define RAS     2
 #define ADJ     3
+#define NUM     4
 
 #define AG(keycode) &ag LG(keycode) keycode     // AutoGUI Macro
 
@@ -354,6 +355,7 @@
         };
 
         adjust_layer {
+            display-name = "Adjust";
             bindings = <
 &trans  &none  &none  &none   &ag R   &none     &ag Y   &studio_unlock         &none    &none    &none     &trans
 &trans  &ag A  &ag S  &ag D   &ag F   &ag G     &trans  &trans                 &none    &tdup    &none     &none
@@ -364,13 +366,15 @@
             label = "Adjust";
         };
 
-        numpad {
+        numpad_layer {
+            display-name = "Numpad";
             bindings = <
 &none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_ASTERISK  &none  &trans
 &none  &none         &none         &none         &none         &none           &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp PLUS         &none  &none
-&none  &none         &none         &none         &none         &none           &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_SUBTRACT  &none  &none
-                                   &none         &none         &none           &kp KP_EQUAL     &kp KP_NUMBER_0  &kp KP_DIVIDE
+&none  &none         &none         &none         &none         &none           &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_SUBTRACT  &KP_DIVIDE  &none
+                                   &none         &trans         &none           &kp KP_EQUAL     &trans  &kp KP_NUMBER_0
             >;
+            label = "Numpad";
         };
     };
 };
