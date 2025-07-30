@@ -5,7 +5,6 @@
  */
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
 #define DEFAULT 0
@@ -196,6 +195,33 @@
             #binding-cells = <0>;
             bindings = <&mt F3 HASH>, <&kp LA(LS(N2))>;
         };
+
+        morph_lt_bspc: morph_lt_bspc {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MORPH_LT_BSPC";
+            bindings = <&lt 2 BACKSPACE>, <&kp LC(D)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI)>;
+        };
+
+        morph_delete: morph_delete {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MORPH_DELETE";
+            bindings = <&mt LG(BACKSPACE) LA(BACKSPACE)>, <&ht_fwd_delete 0 0>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI)>;
+        };
+
+        ht_fwd_delete: ht_fwd_delete {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HT_FWD_DELETE";
+            bindings = <&fwd_del_line>, <&fwd_del_word>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+        };
     };
 };
 
@@ -292,6 +318,28 @@
 
             label = "TRIPLEDASH";
         };
+
+        fwd_del_line: fwd_del_line {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&kp LS(LG(RIGHT)) &kp BACKSPACE>,
+                <&macro_release>;
+
+            label = "FWD_DEL_LINE";
+        };
+
+        fwd_del_word: fwd_del_word {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&kp LS(LA(RIGHT)) &kp BACKSPACE>,
+                <&macro_release>;
+
+            label = "FWD_DEL_WORD";
+        };
     };
 
     combos {
@@ -299,7 +347,7 @@
 
         capwordz {
             bindings = <&caps_word>;
-            key-positions = <25 34>;
+            key-positions = <25 26>;
         };
     };
 
@@ -315,10 +363,10 @@
 
             display-name = "Base";
             bindings = <
-&hyper                 &ag Q  &ag W  &ag E     &ag R            &ag T                   &ag Y        &ag U                            &ag I        &ag O    &ag P     &mo_tog 4 4
-&mt LS(LA(LCTRL)) TAB  &ag A  &ag S  &ag D     &ag F            &ag G                   &ag H        &ag J                            &ag K        &ag L    &tdquote  &tdcolon
-&mt LCTRL LC(TAB)      &ag Z  &ag X  &ag C     &ag V            &ag B                   &ag N        &ag M                            &ag COMMA    &ag DOT  &tdques   &sk LGUI
-                                     &sk LALT  &lt 2 BACKSPACE  &mt LEFT_SHIFT ENTER    &lt 1 SPACE  &mt LG(BACKSPACE) LA(BACKSPACE)  &mo_tog 3 3
+&hyper                 &ag Q  &ag W  &ag E     &ag R           &ag T                   &ag Y        &ag U          &ag I        &ag O    &ag P     &mo_tog 4 4
+&mt LS(LA(LCTRL)) TAB  &ag A  &ag S  &ag D     &ag F           &ag G                   &ag H        &ag J          &ag K        &ag L    &tdquote  &tdcolon
+&mt LCTRL LC(TAB)      &ag Z  &ag X  &ag C     &ag V           &ag B                   &ag N        &ag M          &ag COMMA    &ag DOT  &tdques   &sk LGUI
+                                     &sk LALT  &morph_lt_bspc  &mt LEFT_SHIFT ENTER    &lt 1 SPACE  &morph_delete  &mo_tog 3 3
             >;
 
             label = "Base";
@@ -374,13 +422,13 @@
 
         numpad_layer {
             bindings = <
-&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_ASTERISK  &none          &trans
-&none  &none         &none         &none         &none         &none           &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp PLUS         &none          &none
-&none  &none         &none         &none         &none         &none           &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_SUBTRACT  &kp KP_DIVIDE  &none
-                                   &none         &trans        &none           &kp KP_EQUAL     &trans           &kp KP_NUMBER_0
+&none  &none  &none  &none  &none   &none    &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_ASTERISK  &none          &trans
+&none  &none  &none  &none  &none   &none    &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp PLUS         &none          &none
+&none  &none  &none  &none  &none   &none    &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_SUBTRACT  &kp KP_DIVIDE  &none
+                     &none  &trans  &none    &kp KP_EQUAL     &trans           &kp KP_NUMBER_0
             >;
 
-            label = "Numpad and BT";
+            label = "Numpad";
         };
     };
 };
