@@ -455,7 +455,7 @@
 &hyper                 &ag Q  &ag W  &ag E     &ag R           &ag T                   &ag Y        &ag U          &ag I        &ag O    &ag P     &mo_tog 4 4
 &mt LS(LA(LCTRL)) TAB  &ag A  &ag S  &ag D     &ag F           &ag G                   &ag H        &ag J          &ag K        &ag L    &tdquote  &tdcolon
 &mt LCTRL LC(TAB)      &ag Z  &ag X  &ag C     &ag V           &ag B                   &ag N        &ag M          &ag COMMA    &ag DOT  &tdques   &sk LGUI
-                                     &sk LALT  &morph_lt_bspc  &mt LEFT_SHIFT ENTER    &lt 2 SPACE  &morph_delete  &mo_tog 3 3
+                                     &sk LALT  &morph_lt_bspc  &mt LEFT_SHIFT ENTER    &lt 1 SPACE  &morph_delete  &mo_tog 3 3
             >;
 
             label = "Base";
@@ -470,10 +470,10 @@
 
             display-name = "Lower";
             bindings = <
-&trans  &ag N1  &ag N2  &ag N3  &ag N4  &ag N5    &ag N6        &ag N7     &ag N8               &ag N9                     &ag N0             &trans
-&trans  &none   &none   &none   &none   &none     &ag UP_ARROW  &tdsquare  &td_dash             &mt LG(UP_ARROW) UP_ARROW  &kp PLUS           &kp BACKSLASH
-&trans  &none   &none   &none   &none   &none     &ag DOWN      &tdcurly   &mt LG(MINUS) MINUS  &mt LG(DOWN) PERIOD        &mt LG(PLUS) PLUS  &trans
-                        &trans  &trans  &trans    &trans        &trans     &trans
+&trans  &ag N1  &ag N2  &ag N3  &ag N4  &ag N5    &ag N6  &ag N7     &ag N8               &ag N9                     &ag N0             &trans
+&trans  &none   &none   &none   &none   &none     &none   &tdsquare  &td_dash             &mt LG(UP_ARROW) UP_ARROW  &kp PLUS           &kp BACKSLASH
+&trans  &none   &none   &none   &none   &none     &none   &tdcurly   &mt LG(MINUS) MINUS  &mt LG(DOWN) PERIOD        &mt LG(PLUS) PLUS  &trans
+                        &trans  &trans  &trans    &trans  &trans     &trans
             >;
 
             label = "Lower";
@@ -488,9 +488,9 @@
 
             display-name = "Raise";
             bindings = <
-&trans  &mt F1 EXCL   &mt F2 AT  &td_3key  &td_4key  &td_5key         &mt F6 CARET  &mt F7 AMPS  &mt F8 ASTERISK  &mt F9 LPAR       &mt F10 RPAR   &trans
-&trans  &none         &none      &none     &none     &none            &trans        &trans       &trans           &none             &trans         &kp BACKSLASH
-&trans  &kp CAPSLOCK  &none      &none     &none     &none            &trans        &trans       &morph_vol_down  &kp C_PLAY_PAUSE  &morph_vol_up  &trans
+&trans  &mt F1 EXCL   &mt F2 AT  &td_3key  &td_4key  &td_5key         &mt F6 CARET  &mt F7 AMPS  &mt F8 ASTERISK  &mt F9 LPAR        &mt F10 RPAR  &trans
+&trans  &none         &none      &none     &none     &none            &trans        &trans       &trans           &kp C_VOLUME_UP    &trans        &kp BACKSLASH
+&trans  &kp CAPSLOCK  &none      &none     &none     &none            &trans        &trans       &kp C_NEXT       &kp C_VOLUME_DOWN  &kp C_NEXT    &trans
                                  &trans    &trans    &kp LS(ENTER)    &trans        &trans       &trans
             >;
 
