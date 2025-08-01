@@ -200,7 +200,7 @@
         morph_lt_bspc: morph_lt_bspc {
             compatible = "zmk,behavior-mod-morph";
             label = "MORPH_LT_BSPC";
-            bindings = <&lt 3 BACKSPACE>, <&kp LC(D)>;
+            bindings = <&lt 2 BACKSPACE>, <&kp LC(D)>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI|MOD_RCTL|MOD_RSFT|MOD_RALT|MOD_RGUI)>;
