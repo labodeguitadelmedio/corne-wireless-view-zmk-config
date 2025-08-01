@@ -220,7 +220,7 @@
         ht_fwd_delete: ht_fwd_delete {
             compatible = "zmk,behavior-hold-tap";
             label = "HT_FWD_DELETE";
-            bindings = <&kp>, <&fwd_del_word>;
+            bindings = <&fwd_del_line>, <&fwd_del_word>;
 
             #binding-cells = <2>;
             tapping-term-ms = <250>;
@@ -238,7 +238,7 @@
         morph_vol_down: morph_vol_down {
             compatible = "zmk,behavior-mod-morph";
             label = "MORPH_VOL_DOWN";
-            bindings = <&kp C_VOLUME_DOWN>, <&kp C_PREV>;
+            bindings = <&kp C_VOLUME_DOWN>, <&kp C_PREVIOUS>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_RCTL|MOD_LGUI|MOD_RSFT|MOD_RALT|MOD_RGUI)>;
@@ -438,6 +438,18 @@
             bindings = <&kp CAPSLOCK>;
             key-positions = <25 34>;
         };
+
+        bt_clr {
+            bindings = <&bt BT_CLR>;
+            key-positions = <29 5>;
+            layers = <4>;
+        };
+
+        bootload {
+            bindings = <&bootloader>;
+            key-positions = <29 21>;
+            layers = <4>;
+        };
     };
 
     keymap {
@@ -470,9 +482,9 @@
 
             display-name = "Lower";
             bindings = <
-&trans  &ag N1  &ag N2  &ag N3  &ag N4  &ag N5    &ag N6  &ag N7     &ag N8               &ag N9                     &ag N0             &trans
-&trans  &none   &none   &none   &none   &none     &none   &tdsquare  &td_dash             &mt LG(UP_ARROW) UP_ARROW  &kp PLUS           &kp BACKSLASH
-&trans  &none   &none   &none   &none   &none     &none   &tdcurly   &mt LG(MINUS) MINUS  &mt LG(DOWN) PERIOD        &mt LG(PLUS) PLUS  &trans
+&trans  &ag N1  &ag N2  &ag N3  &ag N4  &ag N5    &ag N6  &ag N7     &ag N8     &ag N9                     &ag N0    &trans
+&trans  &none   &none   &none   &none   &none     &none   &tdsquare  &td_dash   &mt LG(UP_ARROW) UP_ARROW  &kp PLUS  &kp BACKSLASH
+&trans  &none   &none   &none   &none   &none     &none   &tdcurly   &ag MINUS  &mt LG(DOWN) PERIOD        &ag PLUS  &trans
                         &trans  &trans  &trans    &trans  &trans     &trans
             >;
 
@@ -488,9 +500,9 @@
 
             display-name = "Raise";
             bindings = <
-&trans  &mt F1 EXCL   &mt F2 AT  &td_3key  &td_4key  &td_5key         &mt F6 CARET  &mt F7 AMPS  &mt F8 ASTERISK  &mt F9 LPAR        &mt F10 RPAR  &trans
-&trans  &none         &none      &none     &none     &none            &trans        &trans       &trans           &kp C_VOLUME_UP    &trans        &kp BACKSLASH
-&trans  &kp CAPSLOCK  &none      &none     &none     &none            &trans        &trans       &kp C_NEXT       &kp C_VOLUME_DOWN  &kp C_NEXT    &trans
+&trans  &mt F1 EXCL   &mt F2 AT  &td_3key  &td_4key  &td_5key         &mt F6 CARET  &mt F7 AMPS  &mt F8 ASTERISK  &mt F9 LPAR       &mt F10 RPAR   &trans
+&trans  &none         &none      &none     &none     &none            &trans        &trans       &trans           &none             &trans         &kp BACKSLASH
+&trans  &kp CAPSLOCK  &none      &none     &none     &none            &trans        &trans       &morph_vol_down  &kp C_PLAY_PAUSE  &morph_vol_up  &trans
                                  &trans    &trans    &kp LS(ENTER)    &trans        &trans       &trans
             >;
 
@@ -500,10 +512,10 @@
         adjust_layer {
             display-name = "Adjust";
             bindings = <
-&trans  &none  &none  &none   &ag R   &none     &ag Y   &studio_unlock         &none    &none    &none     &trans
-&trans  &ag A  &ag S  &ag D   &ag F   &ag G     &trans  &trans                 &none    &tdup    &none     &none
-&trans  &ag Z  &ag X  &ag C   &ag V   &ag B     &ag N   &trans                 &tdleft  &tddown  &tdright  &trans
-                      &trans  &trans  &trans    &trans  &mt LG(BSPC) LA(BSPC)  &trans
+&trans  &none  &none  &none   &ag R   &none                   &ag Y   &studio_unlock  &none    &none    &none     &trans
+&trans  &ag A  &ag S  &ag D   &ag F   &ag G                   &trans  &trans          &none    &tdup    &none     &none
+&trans  &ag Z  &ag X  &ag C   &ag V   &ag B                   &ag N   &trans          &tdleft  &tddown  &tdright  &trans
+                      &trans  &trans  &mt LEFT_SHIFT ENTER    &trans  &trans          &trans
             >;
 
             label = "Adjust";
@@ -511,10 +523,10 @@
 
         numpad_layer {
             bindings = <
-&morph_bootload  &morph_bt1  &morph_bt2  &morph_bt3  &morph_bt4  &morph_bt5    &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_ASTERISK  &none          &trans
-&none            &none       &none       &none       &none       &none         &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp PLUS         &none          &none
-&morph_bt_clr    &none       &none       &none       &none       &none         &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_SUBTRACT  &kp KP_DIVIDE  &none
-                                         &none       &trans      &none         &kp KP_EQUAL     &trans           &kp KP_NUMBER_0
+&none  &morph_bt1  &morph_bt2  &morph_bt3  &morph_bt4  &morph_bt5    &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_ASTERISK  &none          &trans
+&none  &none       &none       &none       &none       &none         &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp PLUS         &none          &none
+&none  &none       &none       &none       &none       &none         &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_SUBTRACT  &kp KP_DIVIDE  &trans
+                               &none       &trans      &trans        &kp KP_EQUAL     &trans           &kp KP_NUMBER_0
             >;
 
             label = "Numpad";
