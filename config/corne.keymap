@@ -451,7 +451,7 @@
             display-name = "Lower";
             bindings = <
 &trans  &ag N1  &ag N2  &ag N3  &ag N4  &ag N5    &ag N6  &ag N7     &ag N8               &ag N9                     &ag N0             &trans
-&trans  &none   &none   &none   &none   &none     &none   &tdsquare  &td_dash             &mt LG(UP_ARROW) UP_ARROW  &kp PLUS           &kp BACKSLASH
+&trans  &none   &none   &none   &none   &none     &none   &tdsquare  &td_dash             &mt LG(UP_ARROW) UP_ARROW  &kp EQUAL          &kp BACKSLASH
 &trans  &none   &none   &none   &none   &none     &none   &tdcurly   &mt LG(MINUS) MINUS  &mt LG(DOWN) PERIOD        &mt LG(PLUS) PLUS  &trans
                         &trans  &trans  &trans    &trans  &trans     &trans
             >;
@@ -492,9 +492,9 @@
         numpad_layer {
             bindings = <
 &mm_bootload  &mm_bt1  &mm_bt2  &mm_bt3  &mm_bt4  &mm_bt5    &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_ASTERISK  &none          &trans
-&none         &none    &none    &none    &none    &none      &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp PLUS         &none          &none
-&mm_bt_clr    &none    &none    &none    &none    &none      &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_SUBTRACT  &kp KP_DIVIDE  &trans
-                                &none    &trans   &trans     &kp KP_EQUAL     &trans           &kp KP_NUMBER_0
+&trans        &none    &none    &none    &none    &none      &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_MINUS     &none          &none
+&mm_bt_clr    &none    &none    &none    &none    &none      &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp PLUS         &kp KP_DIVIDE  &trans
+                                &none    &trans   &trans     &kp ENTER        &kp KP_NUMBER_0  &kp KP_EQUAL
             >;
 
             label = "Numpad";
