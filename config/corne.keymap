@@ -230,16 +230,16 @@
             bindings = <&none>, <&bt BT_SEL 0>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_RCTL|MOD_RSFT|MOD_RALT|MOD_LGUI|MOD_RGUI)>;
+            mods = <(MOD_RGUI|MOD_LGUI)>;
         };
 
         mm_bt2: mm_bt2 {
             compatible = "zmk,behavior-mod-morph";
             label = "MM_BT2";
-            bindings = <&none>, <&bt BT_SEL 1>;
+            bindings = <&ag UP_ARROW>, <&bt BT_SEL 1>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI|MOD_RCTL|MOD_RSFT|MOD_RALT|MOD_RGUI)>;
+            mods = <(MOD_LGUI|MOD_RGUI)>;
         };
 
         mm_bt3: mm_bt3 {
@@ -248,7 +248,7 @@
             bindings = <&none>, <&bt BT_SEL 2>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI|MOD_RCTL|MOD_RSFT|MOD_RALT|MOD_RGUI)>;
+            mods = <(MOD_LGUI|MOD_RGUI)>;
         };
 
         mm_bt4: mm_bt4 {
@@ -257,7 +257,7 @@
             bindings = <&none>, <&bt BT_SEL 3>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI|MOD_RCTL|MOD_RSFT|MOD_RALT|MOD_RGUI)>;
+            mods = <(MOD_LGUI|MOD_RGUI)>;
         };
 
         mm_bt5: mm_bt5 {
@@ -266,16 +266,16 @@
             bindings = <&none>, <&bt BT_SEL 4>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI|MOD_RCTL|MOD_RSFT|MOD_RALT|MOD_RGUI)>;
+            mods = <(MOD_LGUI|MOD_RGUI)>;
         };
 
         mm_bootload: mm_bootload {
             compatible = "zmk,behavior-mod-morph";
             label = "MM_BOOTLOAD";
-            bindings = <&none>, <&bootloader>;
+            bindings = <&kp ESCAPE>, <&bootloader>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI|MOD_RCTL|MOD_RSFT|MOD_RALT|MOD_RGUI)>;
+            mods = <(MOD_LGUI|MOD_RGUI)>;
         };
 
         mm_bt_clr: mm_bt_clr {
@@ -284,7 +284,7 @@
             bindings = <&none>, <&bt BT_CLR>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI|MOD_RCTL|MOD_RSFT|MOD_RALT|MOD_RGUI)>;
+            mods = <(MOD_LGUI|MOD_RGUI)>;
         };
     };
 };
@@ -491,10 +491,10 @@
 
         numpad_layer {
             bindings = <
-&mm_bootload  &mm_bt1  &mm_bt2  &mm_bt3  &mm_bt4  &mm_bt5    &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_ASTERISK  &none          &trans
-&trans        &none    &none    &none    &none    &none      &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_MINUS     &none          &none
-&mm_bt_clr    &none    &none    &none    &none    &none      &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp PLUS         &kp KP_DIVIDE  &trans
-                                &none    &trans   &trans     &kp ENTER        &kp KP_NUMBER_0  &kp KP_EQUAL
+&mm_bootload  &mm_bt1   &mm_bt2   &mm_bt3    &mm_bt4  &mm_bt5    &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_ASTERISK  &none          &trans
+&trans        &ag LEFT  &ag DOWN  &ag RIGHT  &none    &none      &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_MINUS     &none          &none
+&mm_bt_clr    &none     &none     &none      &none    &none      &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp PLUS         &kp KP_DIVIDE  &trans
+                                  &none      &trans   &trans     &kp ENTER        &kp KP_NUMBER_0  &kp KP_EQUAL
             >;
 
             label = "Numpad";
