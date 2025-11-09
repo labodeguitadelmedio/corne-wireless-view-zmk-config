@@ -286,6 +286,15 @@
             #binding-cells = <0>;
             mods = <(MOD_LGUI|MOD_RGUI)>;
         };
+
+        mm_ctrl_tab: mm_ctrl_tab {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MM_CTRL_TAB";
+            bindings = <&mt LEFT_CONTROL LC(TAB)>, <&kp TILDE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_LALT|MOD_RALT|MOD_RSFT)>;
+        };
     };
 };
 
@@ -434,7 +443,7 @@
             bindings = <
 &hyper                 &ag Q  &ag W  &ag E     &ag R        &ag T                   &ag Y        &ag U    &ag I        &ag O    &ag P     &mo_tog 4 4
 &mt LS(LA(LCTRL)) TAB  &ag A  &ag S  &ag D     &ag F        &ag G                   &ag H        &ag J    &ag K        &ag L    &tdquote  &tdcolon
-&mt LCTRL LC(TAB)      &ag Z  &ag X  &ag C     &ag V        &ag B                   &ag N        &ag M    &ag COMMA    &ag DOT  &tdques   &sk LGUI
+&mm_ctrl_tab           &ag Z  &ag X  &ag C     &ag V        &ag B                   &ag N        &ag M    &ag COMMA    &ag DOT  &tdques   &sk LGUI
                                      &sk LALT  &mm_lt_bspc  &mt LEFT_SHIFT ENTER    &lt 1 SPACE  &mm_del  &mo_tog 3 3
             >;
 
