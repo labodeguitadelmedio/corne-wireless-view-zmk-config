@@ -480,7 +480,7 @@
 &trans  &mt F1 EXCL   &mt F2 AT  &td_3key  &td_4key  &td_5key         &mt F6 CARET  &mt F7 AMPS  &mt F8 ASTERISK               &mt F9 LPAR       &mt F10 RPAR            &trans
 &trans  &none         &none      &none     &none     &none            &trans        &trans       &trans                        &none             &trans                  &kp BACKSLASH
 &trans  &kp CAPSLOCK  &none      &none     &none     &none            &trans        &trans       &mt C_PREVIOUS C_VOLUME_DOWN  &kp C_PLAY_PAUSE  &mt C_NEXT C_VOLUME_UP  &trans
-                                 &trans    &trans    &kp LS(ENTER)    &trans        &trans       &trans
+                                 &trans    &trans    &kp LS(ENTER)    &ag SPACE        &trans       &trans
             >;
 
             label = "Raise";
